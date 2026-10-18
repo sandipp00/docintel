@@ -5,3 +5,6 @@
 *.jpeg binary
 *.docx binary
 *.joblib binary
+*.sh text eol=lf
+Dockerfile text eol=lf
+.dockerignore text eol=lf
