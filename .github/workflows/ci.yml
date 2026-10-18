@@ -1,0 +1,97 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  # No LLM key in CI: tests use fake providers, and anything needing a real key is skipped.
+  LLM_PROVIDER: none
+  HF_HOME: ${{ github.workspace }}/.hf-cache
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
+
+      - name: Install Tesseract (OCR tests)
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends tesseract-ocr
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+          python -m spacy download en_core_web_sm
+
+      - name: Cache sentence-transformers model
+        uses: actions/cache@v4
+        with:
+          path: .hf-cache
+          key: hf-${{ hashFiles('requirements.txt') }}-${{ hashFiles('src/config.py') }}
+
+      - name: Lint
+        run: ruff check .
+
+      - name: Test
+        run: pytest
+
+  evaluate:
+    # Offline evaluation on the held-out documents; the report is kept as a build artifact so
+    # metric changes can be compared between runs.
+    needs: test
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
+
+      - name: Install Tesseract
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends tesseract-ocr
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+          python -m spacy download en_core_web_sm
+
+      - name: Cache sentence-transformers model
+        uses: actions/cache@v4
+        with:
+          path: .hf-cache
+          key: hf-${{ hashFiles('requirements.txt') }}-${{ hashFiles('src/config.py') }}
+
+      - name: Run evaluation
+        run: python -m evaluation.run_eval | tee eval_summary.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eval-report
+          path: |
+            data/eval_report.json
+            eval_summary.txt

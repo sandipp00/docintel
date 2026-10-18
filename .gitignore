@@ -1,0 +1,22 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.coverage
+*.egg-info/
+
+# Runtime data (uploads, sqlite, indexes) - auto-deleted by retention job
+data/
+*.sqlite3
+
+# Large generated artifacts: regenerate with training/generate_data.py
+training/data/
+# Trained model is rebuilt by training/train_classifier.py
+models/*
+!models/classifier.joblib
+!models/classifier_metrics.json
+
+.DS_Store

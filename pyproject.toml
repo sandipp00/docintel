@@ -1,0 +1,14 @@
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+"api/*.py" = ["B008"]  # FastAPI Depends()/File() defaults are the framework idiom
+"training/*.py" = ["E501"]  # long metric/template lines read better unwrapped
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

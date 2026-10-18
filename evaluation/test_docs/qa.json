@@ -1,0 +1,1444 @@
+[
+ {
+  "question": "What is the invoice number?",
+  "answer": "INV-54399",
+  "answerable": true,
+  "file": "invoice_00.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "Digital Molestiae Group",
+  "answerable": true,
+  "file": "invoice_00.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "\u20ac22,158.30",
+  "answerable": true,
+  "file": "invoice_00.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_00.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "INV/2024/1275",
+  "answerable": true,
+  "file": "invoice_01.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "Prime Thompson Consulting",
+  "answerable": true,
+  "file": "invoice_01.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "6487.33",
+  "answerable": true,
+  "file": "invoice_01.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_01.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "626517",
+  "answerable": true,
+  "file": "invoice_02.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "Gonzalez Partners",
+  "answerable": true,
+  "file": "invoice_02.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "3.044,34 \u00a3",
+  "answerable": true,
+  "file": "invoice_02.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_02.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "INV/2022/3715",
+  "answerable": true,
+  "file": "invoice_03.jpg",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "Prime Aliquid LLC",
+  "answerable": true,
+  "file": "invoice_03.jpg",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "3781.25",
+  "answerable": true,
+  "file": "invoice_03.jpg",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_03.jpg",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "INV-96957",
+  "answerable": true,
+  "file": "invoice_04.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "Blue Moon Consulting",
+  "answerable": true,
+  "file": "invoice_04.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "26723.52",
+  "answerable": true,
+  "file": "invoice_04.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_04.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "2023-0736",
+  "answerable": true,
+  "file": "invoice_05.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "Cooper Group",
+  "answerable": true,
+  "file": "invoice_05.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "1.881,50 $",
+  "answerable": true,
+  "file": "invoice_05.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_05.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "INV-98665",
+  "answerable": true,
+  "file": "invoice_06.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "Worker Group",
+  "answerable": true,
+  "file": "invoice_06.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "GBP 25,391.98",
+  "answerable": true,
+  "file": "invoice_06.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_06.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "BL50595",
+  "answerable": true,
+  "file": "invoice_07.jpg",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "Digital Magnam Ltd",
+  "answerable": true,
+  "file": "invoice_07.jpg",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "USD 5,473.69",
+  "answerable": true,
+  "file": "invoice_07.jpg",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_07.jpg",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "2021-0929",
+  "answerable": true,
+  "file": "invoice_08.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "United Williamson GmbH",
+  "answerable": true,
+  "file": "invoice_08.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "14366.83",
+  "answerable": true,
+  "file": "invoice_08.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_08.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "BL69661",
+  "answerable": true,
+  "file": "invoice_09.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "Global Morales Labs",
+  "answerable": true,
+  "file": "invoice_09.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "$36,874.51",
+  "answerable": true,
+  "file": "invoice_09.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_09.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "INV/2022/5045",
+  "answerable": true,
+  "file": "invoice_10.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "Prime Officia Supplies",
+  "answerable": true,
+  "file": "invoice_10.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "20.350,93 $",
+  "answerable": true,
+  "file": "invoice_10.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_10.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "INV-10531",
+  "answerable": true,
+  "file": "invoice_11.jpg",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "United Gibson Systems",
+  "answerable": true,
+  "file": "invoice_11.jpg",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "$43,215.65",
+  "answerable": true,
+  "file": "invoice_11.jpg",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_11.jpg",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "2024-0581",
+  "answerable": true,
+  "file": "invoice_12.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "Blue Baxter Inc.",
+  "answerable": true,
+  "file": "invoice_12.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "22422.76",
+  "answerable": true,
+  "file": "invoice_12.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_12.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "INV/2021/8074",
+  "answerable": true,
+  "file": "invoice_13.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "United Scott Co.",
+  "answerable": true,
+  "file": "invoice_13.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "\u20ac21,662.05",
+  "answerable": true,
+  "file": "invoice_13.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_13.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the invoice number?",
+  "answer": "INV-26256",
+  "answerable": true,
+  "file": "invoice_14.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "Who issued this invoice (the vendor)?",
+  "answer": "Ali GmbH",
+  "answerable": true,
+  "file": "invoice_14.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the total amount on this invoice?",
+  "answer": "$24,293.64",
+  "answerable": true,
+  "file": "invoice_14.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the vendor's bank account number?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_14.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "andrea.morris_dev@gmail.com",
+  "answerable": true,
+  "file": "resume_00.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "Apex Jenkins Ltd",
+  "answerable": true,
+  "file": "resume_00.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_00.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "jack.lawson88@proton.me",
+  "answerable": true,
+  "file": "resume_01.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "Prime Munoz Consulting",
+  "answerable": true,
+  "file": "resume_01.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_01.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "ashleigh.williams@gmail.com",
+  "answerable": true,
+  "file": "resume_02.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "Snow Systems",
+  "answerable": true,
+  "file": "resume_02.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_02.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "sophie.hall@outlook.com",
+  "answerable": true,
+  "file": "resume_03.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "Mcdonald Partners",
+  "answerable": true,
+  "file": "resume_03.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_03.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "lori.iqbal_dev@proton.me",
+  "answerable": true,
+  "file": "resume_04.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "Blue Harrington GmbH",
+  "answerable": true,
+  "file": "resume_04.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_04.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "eileen.clarke_dev@proton.me",
+  "answerable": true,
+  "file": "resume_05.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "Blue Occaecati Partners",
+  "answerable": true,
+  "file": "resume_05.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_05.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "joan.moore@mail.com",
+  "answerable": true,
+  "file": "resume_06.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "United Expedita Ltd",
+  "answerable": true,
+  "file": "resume_06.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_06.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "gerard.gough_dev@yahoo.com",
+  "answerable": true,
+  "file": "resume_07.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "Digital Building Co.",
+  "answerable": true,
+  "file": "resume_07.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_07.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "steven.o'connor@yahoo.com",
+  "answerable": true,
+  "file": "resume_08.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "Ingram Industries",
+  "answerable": true,
+  "file": "resume_08.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_08.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "louis.powell@proton.me",
+  "answerable": true,
+  "file": "resume_09.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "Digital Harris Supplies",
+  "answerable": true,
+  "file": "resume_09.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_09.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "sarah.gray_dev@yahoo.com",
+  "answerable": true,
+  "file": "resume_10.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "United Mason Ltd",
+  "answerable": true,
+  "file": "resume_10.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_10.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "kristin.jones1@gmail.com",
+  "answerable": true,
+  "file": "resume_11.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "Allen Partners",
+  "answerable": true,
+  "file": "resume_11.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_11.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "christopher.lopez@yahoo.com",
+  "answerable": true,
+  "file": "resume_12.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "Young Group",
+  "answerable": true,
+  "file": "resume_12.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_12.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "luke.shah_dev@proton.me",
+  "answerable": true,
+  "file": "resume_13.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "Digital Tree Consulting",
+  "answerable": true,
+  "file": "resume_13.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_13.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's email address?",
+  "answer": "melinda.taylor_dev@outlook.com",
+  "answerable": true,
+  "file": "resume_14.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Which company did the candidate most recently work for?",
+  "answer": "United Lopez Co.",
+  "answerable": true,
+  "file": "resume_14.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the candidate's salary expectation?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_14.docx",
+  "doc_type": "resume"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "Oct 22, 2022",
+  "answerable": true,
+  "file": "contract_00.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "2 years",
+  "answerable": true,
+  "file": "contract_00.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_00.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "29 March 2025",
+  "answerable": true,
+  "file": "contract_01.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "4 years",
+  "answerable": true,
+  "file": "contract_01.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_01.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "December 26, 2022",
+  "answerable": true,
+  "file": "contract_02.docx",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "5 years",
+  "answerable": true,
+  "file": "contract_02.docx",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_02.docx",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "25 Dec 2024",
+  "answerable": true,
+  "file": "contract_03.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "6 months",
+  "answerable": true,
+  "file": "contract_03.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_03.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "2024-08-09",
+  "answerable": true,
+  "file": "contract_04.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "1 years",
+  "answerable": true,
+  "file": "contract_04.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_04.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "07 Nov 2023",
+  "answerable": true,
+  "file": "contract_05.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "36 months",
+  "answerable": true,
+  "file": "contract_05.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_05.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "November 01, 2022",
+  "answerable": true,
+  "file": "contract_06.docx",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "4 years",
+  "answerable": true,
+  "file": "contract_06.docx",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_06.docx",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "27 Mar 2025",
+  "answerable": true,
+  "file": "contract_07.png",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "12 months",
+  "answerable": true,
+  "file": "contract_07.png",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_07.png",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "2022-07-11",
+  "answerable": true,
+  "file": "contract_08.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "6 months",
+  "answerable": true,
+  "file": "contract_08.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_08.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "13/06/2024",
+  "answerable": true,
+  "file": "contract_09.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "3 years",
+  "answerable": true,
+  "file": "contract_09.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_09.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "02 September 2021",
+  "answerable": true,
+  "file": "contract_10.docx",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "12 months",
+  "answerable": true,
+  "file": "contract_10.docx",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_10.docx",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "Sep 05, 2021",
+  "answerable": true,
+  "file": "contract_11.png",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "4 years",
+  "answerable": true,
+  "file": "contract_11.png",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_11.png",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "Apr 16, 2024",
+  "answerable": true,
+  "file": "contract_12.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "2 years",
+  "answerable": true,
+  "file": "contract_12.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_12.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "17 September 2021",
+  "answerable": true,
+  "file": "contract_13.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "12 months",
+  "answerable": true,
+  "file": "contract_13.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_13.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the effective date of the agreement?",
+  "answer": "Mar 03, 2023",
+  "answerable": true,
+  "file": "contract_14.docx",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the term of the agreement?",
+  "answer": "5 years",
+  "answerable": true,
+  "file": "contract_14.docx",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the penalty for late delivery in dollars?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_14.docx",
+  "doc_type": "contract"
+ },
+ {
+  "question": "How long did the service degradation last?",
+  "answer": "49 minutes",
+  "answerable": true,
+  "file": "report_00.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the peak error rate?",
+  "answer": "6.6%",
+  "answerable": true,
+  "file": "report_00.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_00.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "How many participants were surveyed?",
+  "answer": "1405",
+  "answerable": true,
+  "file": "report_01.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the overall adoption rate?",
+  "answer": "31.7%",
+  "answerable": true,
+  "file": "report_01.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_01.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the revenue growth year over year?",
+  "answer": "33.7%",
+  "answerable": true,
+  "file": "report_02.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the customer churn rate?",
+  "answer": "2.2%",
+  "answerable": true,
+  "file": "report_02.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_02.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "How long did the service degradation last?",
+  "answer": "17 minutes",
+  "answerable": true,
+  "file": "report_03.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the peak error rate?",
+  "answer": "7.0%",
+  "answerable": true,
+  "file": "report_03.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_03.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "How long did the service degradation last?",
+  "answer": "364 minutes",
+  "answerable": true,
+  "file": "report_04.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the peak error rate?",
+  "answer": "2.0%",
+  "answerable": true,
+  "file": "report_04.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_04.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "How long did the service degradation last?",
+  "answer": "355 minutes",
+  "answerable": true,
+  "file": "report_05.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the peak error rate?",
+  "answer": "8.5%",
+  "answerable": true,
+  "file": "report_05.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_05.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the revenue growth year over year?",
+  "answer": "4.9%",
+  "answerable": true,
+  "file": "report_06.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the customer churn rate?",
+  "answer": "8.7%",
+  "answerable": true,
+  "file": "report_06.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_06.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the revenue growth year over year?",
+  "answer": "4.6%",
+  "answerable": true,
+  "file": "report_07.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the customer churn rate?",
+  "answer": "5.2%",
+  "answerable": true,
+  "file": "report_07.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_07.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "How many participants were surveyed?",
+  "answer": "1922",
+  "answerable": true,
+  "file": "report_08.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the overall adoption rate?",
+  "answer": "20.7%",
+  "answerable": true,
+  "file": "report_08.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_08.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the revenue growth year over year?",
+  "answer": "15.4%",
+  "answerable": true,
+  "file": "report_09.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the customer churn rate?",
+  "answer": "5.4%",
+  "answerable": true,
+  "file": "report_09.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_09.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "How long did the service degradation last?",
+  "answer": "254 minutes",
+  "answerable": true,
+  "file": "report_10.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the peak error rate?",
+  "answer": "7.1%",
+  "answerable": true,
+  "file": "report_10.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_10.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "How many participants were surveyed?",
+  "answer": "1655",
+  "answerable": true,
+  "file": "report_11.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the overall adoption rate?",
+  "answer": "21.7%",
+  "answerable": true,
+  "file": "report_11.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_11.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "How long did the service degradation last?",
+  "answer": "140 minutes",
+  "answerable": true,
+  "file": "report_12.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the peak error rate?",
+  "answer": "4.6%",
+  "answerable": true,
+  "file": "report_12.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_12.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the revenue growth year over year?",
+  "answer": "30.7%",
+  "answerable": true,
+  "file": "report_13.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the customer churn rate?",
+  "answer": "6.7%",
+  "answerable": true,
+  "file": "report_13.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_13.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "How long did the service degradation last?",
+  "answer": "80 minutes",
+  "answerable": true,
+  "file": "report_14.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What was the peak error rate?",
+  "answer": "7.5%",
+  "answerable": true,
+  "file": "report_14.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who is the chief executive officer of the company?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_14.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who chaired the meeting?",
+  "answer": "John Winter",
+  "answerable": true,
+  "file": "other_01.png",
+  "doc_type": "other"
+ },
+ {
+  "question": "Who chaired the meeting?",
+  "answer": "Jasmine Stokes",
+  "answerable": true,
+  "file": "other_10.docx",
+  "doc_type": "other"
+ },
+ {
+  "question": "What is the capital of France?",
+  "answer": "",
+  "answerable": false,
+  "file": "contract_05.pdf",
+  "doc_type": "contract"
+ },
+ {
+  "question": "What is the capital of France?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_09.pdf",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the capital of France?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_04.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Who won the 2018 football World Cup?",
+  "answer": "",
+  "answerable": false,
+  "file": "resume_00.pdf",
+  "doc_type": "resume"
+ },
+ {
+  "question": "Who won the 2018 football World Cup?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_01.docx",
+  "doc_type": "report"
+ },
+ {
+  "question": "Who won the 2018 football World Cup?",
+  "answer": "",
+  "answerable": false,
+  "file": "report_08.pdf",
+  "doc_type": "report"
+ },
+ {
+  "question": "What is the airspeed velocity of an unladen swallow?",
+  "answer": "",
+  "answerable": false,
+  "file": "other_03.jpg",
+  "doc_type": "other"
+ },
+ {
+  "question": "What is the airspeed velocity of an unladen swallow?",
+  "answer": "",
+  "answerable": false,
+  "file": "invoice_06.png",
+  "doc_type": "invoice"
+ },
+ {
+  "question": "What is the airspeed velocity of an unladen swallow?",
+  "answer": "",
+  "answerable": false,
+  "file": "other_02.docx",
+  "doc_type": "other"
+ }
+]

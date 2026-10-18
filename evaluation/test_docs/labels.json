@@ -1,0 +1,1798 @@
+{
+ "invoice_00.pdf": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "Digital Molestiae Group",
+   "invoice_number": "INV-54399",
+   "date": "2025-01-20",
+   "line_items": [
+    {
+     "description": "Mobile app development",
+     "quantity": 6,
+     "unit_price": 255.11,
+     "amount": 1530.66
+    },
+    {
+     "description": "Photography session",
+     "quantity": 6,
+     "unit_price": 276.16,
+     "amount": 1656.96
+    },
+    {
+     "description": "SEO optimisation",
+     "quantity": 10,
+     "unit_price": 842.69,
+     "amount": 8426.9
+    },
+    {
+     "description": "Cloud hosting (monthly)",
+     "quantity": 19,
+     "unit_price": 309.53,
+     "amount": 5881.07
+    },
+    {
+     "description": "Laptop docking station",
+     "quantity": 17,
+     "unit_price": 183.34,
+     "amount": 3116.78
+    }
+   ],
+   "subtotal": 20612.37,
+   "tax": 1545.93,
+   "total": 22158.3,
+   "currency": "EUR"
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "invoice_01.pdf": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "Prime Thompson Consulting",
+   "invoice_number": "INV/2024/1275",
+   "date": "2025-01-18",
+   "line_items": [
+    {
+     "description": "Office chairs",
+     "quantity": 11,
+     "unit_price": 544.81,
+     "amount": 5992.91
+    }
+   ],
+   "subtotal": 5992.91,
+   "tax": 494.42,
+   "total": 6487.33,
+   "currency": "EUR"
+  },
+  "layout": 3,
+  "format": "pdf"
+ },
+ "invoice_02.png": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "Gonzalez Partners",
+   "invoice_number": "626517",
+   "date": "2025-07-27",
+   "line_items": [
+    {
+     "description": "Courier delivery",
+     "quantity": 13,
+     "unit_price": 196.79,
+     "amount": 2558.27
+    }
+   ],
+   "subtotal": 2558.27,
+   "tax": 486.07,
+   "total": 3044.34,
+   "currency": "GBP"
+  },
+  "layout": 2,
+  "format": "png"
+ },
+ "invoice_03.jpg": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "Prime Aliquid LLC",
+   "invoice_number": "INV/2022/3715",
+   "date": "2022-08-10",
+   "line_items": [
+    {
+     "description": "Laptop docking station",
+     "quantity": 8,
+     "unit_price": 393.88,
+     "amount": 3151.04
+    }
+   ],
+   "subtotal": 3151.04,
+   "tax": 630.21,
+   "total": 3781.25,
+   "currency": "GBP"
+  },
+  "layout": 3,
+  "format": "jpg"
+ },
+ "invoice_04.pdf": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "Blue Moon Consulting",
+   "invoice_number": "INV-96957",
+   "date": "2024-04-11",
+   "line_items": [
+    {
+     "description": "Legal review",
+     "quantity": 9,
+     "unit_price": 55.63,
+     "amount": 500.67
+    },
+    {
+     "description": "Equipment rental",
+     "quantity": 1,
+     "unit_price": 665.08,
+     "amount": 665.08
+    },
+    {
+     "description": "Software license",
+     "quantity": 12,
+     "unit_price": 74.83,
+     "amount": 897.96
+    },
+    {
+     "description": "Office chairs",
+     "quantity": 19,
+     "unit_price": 696.1,
+     "amount": 13225.9
+    },
+    {
+     "description": "Laptop docking station",
+     "quantity": 15,
+     "unit_price": 512.03,
+     "amount": 7680.45
+    },
+    {
+     "description": "Logistics and freight",
+     "quantity": 7,
+     "unit_price": 189.15,
+     "amount": 1324.05
+    }
+   ],
+   "subtotal": 24294.11,
+   "tax": 2429.41,
+   "total": 26723.52,
+   "currency": "GBP"
+  },
+  "layout": 1,
+  "format": "pdf"
+ },
+ "invoice_05.pdf": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "Cooper Group",
+   "invoice_number": "2023-0736",
+   "date": "2023-09-12",
+   "line_items": [
+    {
+     "description": "Stationery bundle",
+     "quantity": 3,
+     "unit_price": 216.56,
+     "amount": 649.68
+    },
+    {
+     "description": "Courier delivery",
+     "quantity": 2,
+     "unit_price": 459.12,
+     "amount": 918.24
+    }
+   ],
+   "subtotal": 1567.92,
+   "tax": 313.58,
+   "total": 1881.5,
+   "currency": "USD"
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "invoice_06.png": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "Worker Group",
+   "invoice_number": "INV-98665",
+   "date": "2024-12-05",
+   "line_items": [
+    {
+     "description": "Laptop docking station",
+     "quantity": 19,
+     "unit_price": 620.45,
+     "amount": 11788.55
+    },
+    {
+     "description": "Printer toner cartridges",
+     "quantity": 13,
+     "unit_price": 640.65,
+     "amount": 8328.45
+    },
+    {
+     "description": "Catering service",
+     "quantity": 14,
+     "unit_price": 53.55,
+     "amount": 749.7
+    },
+    {
+     "description": "Server rack mounting",
+     "quantity": 13,
+     "unit_price": 22.56,
+     "amount": 293.28
+    }
+   ],
+   "subtotal": 21159.98,
+   "tax": 4232.0,
+   "total": 25391.98,
+   "currency": "GBP"
+  },
+  "layout": 2,
+  "format": "png"
+ },
+ "invoice_07.jpg": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "Digital Magnam Ltd",
+   "invoice_number": "BL50595",
+   "date": "2023-09-09",
+   "line_items": [
+    {
+     "description": "Data analysis report",
+     "quantity": 7,
+     "unit_price": 744.72,
+     "amount": 5213.04
+    }
+   ],
+   "subtotal": 5213.04,
+   "tax": 260.65,
+   "total": 5473.69,
+   "currency": "USD"
+  },
+  "layout": 3,
+  "format": "jpg"
+ },
+ "invoice_08.pdf": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "United Williamson GmbH",
+   "invoice_number": "2021-0929",
+   "date": "2021-06-07",
+   "line_items": [
+    {
+     "description": "Data analysis report",
+     "quantity": 16,
+     "unit_price": 797.1,
+     "amount": 12753.6
+    },
+    {
+     "description": "Legal review",
+     "quantity": 2,
+     "unit_price": 259.15,
+     "amount": 518.3
+    }
+   ],
+   "subtotal": 13271.9,
+   "tax": 1094.93,
+   "total": 14366.83,
+   "currency": "EUR"
+  },
+  "layout": 0,
+  "format": "pdf"
+ },
+ "invoice_09.pdf": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "Global Morales Labs",
+   "invoice_number": "BL69661",
+   "date": "2021-03-24",
+   "line_items": [
+    {
+     "description": "Packaging materials",
+     "quantity": 19,
+     "unit_price": 827.49,
+     "amount": 15722.31
+    },
+    {
+     "description": "Maintenance contract",
+     "quantity": 2,
+     "unit_price": 449.08,
+     "amount": 898.16
+    },
+    {
+     "description": "Catering service",
+     "quantity": 14,
+     "unit_price": 205.56,
+     "amount": 2877.84
+    },
+    {
+     "description": "Web design services",
+     "quantity": 18,
+     "unit_price": 148.17,
+     "amount": 2667.06
+    },
+    {
+     "description": "Office chairs",
+     "quantity": 6,
+     "unit_price": 697.05,
+     "amount": 4182.3
+    },
+    {
+     "description": "Stationery bundle",
+     "quantity": 13,
+     "unit_price": 593.58,
+     "amount": 7716.54
+    }
+   ],
+   "subtotal": 34064.21,
+   "tax": 2810.3,
+   "total": 36874.51,
+   "currency": "USD"
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "invoice_10.png": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "Prime Officia Supplies",
+   "invoice_number": "INV/2022/5045",
+   "date": "2022-04-13",
+   "line_items": [
+    {
+     "description": "Legal review",
+     "quantity": 11,
+     "unit_price": 114.7,
+     "amount": 1261.7
+    },
+    {
+     "description": "Courier delivery",
+     "quantity": 2,
+     "unit_price": 694.05,
+     "amount": 1388.1
+    },
+    {
+     "description": "Data analysis report",
+     "quantity": 2,
+     "unit_price": 300.29,
+     "amount": 600.58
+    },
+    {
+     "description": "Server rack mounting",
+     "quantity": 5,
+     "unit_price": 413.82,
+     "amount": 2069.1
+    },
+    {
+     "description": "Software license",
+     "quantity": 15,
+     "unit_price": 792.42,
+     "amount": 11886.3
+    },
+    {
+     "description": "Packaging materials",
+     "quantity": 5,
+     "unit_price": 629.03,
+     "amount": 3145.15
+    }
+   ],
+   "subtotal": 20350.93,
+   "tax": 0.0,
+   "total": 20350.93,
+   "currency": "USD"
+  },
+  "layout": 1,
+  "format": "png"
+ },
+ "invoice_11.jpg": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "United Gibson Systems",
+   "invoice_number": "INV-10531",
+   "date": "2023-09-19",
+   "line_items": [
+    {
+     "description": "Data analysis report",
+     "quantity": 19,
+     "unit_price": 697.96,
+     "amount": 13261.24
+    },
+    {
+     "description": "Office chairs",
+     "quantity": 15,
+     "unit_price": 467.56,
+     "amount": 7013.4
+    },
+    {
+     "description": "Equipment rental",
+     "quantity": 11,
+     "unit_price": 881.68,
+     "amount": 9698.48
+    },
+    {
+     "description": "Marketing campaign",
+     "quantity": 14,
+     "unit_price": 475.83,
+     "amount": 6661.62
+    },
+    {
+     "description": "Server rack mounting",
+     "quantity": 9,
+     "unit_price": 294.69,
+     "amount": 2652.21
+    }
+   ],
+   "subtotal": 39286.95,
+   "tax": 3928.7,
+   "total": 43215.65,
+   "currency": "USD"
+  },
+  "layout": 3,
+  "format": "jpg"
+ },
+ "invoice_12.pdf": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "Blue Baxter Inc.",
+   "invoice_number": "2024-0581",
+   "date": "2024-02-20",
+   "line_items": [
+    {
+     "description": "Legal review",
+     "quantity": 3,
+     "unit_price": 387.99,
+     "amount": 1163.97
+    },
+    {
+     "description": "Translation services",
+     "quantity": 11,
+     "unit_price": 251.56,
+     "amount": 2767.16
+    },
+    {
+     "description": "Office chairs",
+     "quantity": 17,
+     "unit_price": 373.33,
+     "amount": 6346.61
+    },
+    {
+     "description": "Cloud hosting (monthly)",
+     "quantity": 17,
+     "unit_price": 422.19,
+     "amount": 7177.23
+    },
+    {
+     "description": "Stationery bundle",
+     "quantity": 4,
+     "unit_price": 456.58,
+     "amount": 1826.32
+    },
+    {
+     "description": "Security audit",
+     "quantity": 2,
+     "unit_price": 551.52,
+     "amount": 1103.04
+    }
+   ],
+   "subtotal": 20384.33,
+   "tax": 2038.43,
+   "total": 22422.76,
+   "currency": "EUR"
+  },
+  "layout": 1,
+  "format": "pdf"
+ },
+ "invoice_13.pdf": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "United Scott Co.",
+   "invoice_number": "INV/2021/8074",
+   "date": "2023-01-26",
+   "line_items": [
+    {
+     "description": "Translation services",
+     "quantity": 19,
+     "unit_price": 504.82,
+     "amount": 9591.58
+    },
+    {
+     "description": "Software license",
+     "quantity": 6,
+     "unit_price": 616.18,
+     "amount": 3697.08
+    },
+    {
+     "description": "Web design services",
+     "quantity": 2,
+     "unit_price": 250.15,
+     "amount": 500.3
+    },
+    {
+     "description": "Packaging materials",
+     "quantity": 12,
+     "unit_price": 367.87,
+     "amount": 4414.44
+    }
+   ],
+   "subtotal": 18203.4,
+   "tax": 3458.65,
+   "total": 21662.05,
+   "currency": "EUR"
+  },
+  "layout": 0,
+  "format": "pdf"
+ },
+ "invoice_14.png": {
+  "doc_type": "invoice",
+  "fields": {
+   "vendor": "Ali GmbH",
+   "invoice_number": "INV-26256",
+   "date": "2024-05-18",
+   "line_items": [
+    {
+     "description": "Catering service",
+     "quantity": 13,
+     "unit_price": 667.82,
+     "amount": 8681.66
+    },
+    {
+     "description": "Maintenance contract",
+     "quantity": 16,
+     "unit_price": 503.57,
+     "amount": 8057.12
+    },
+    {
+     "description": "Translation services",
+     "quantity": 6,
+     "unit_price": 118.81,
+     "amount": 712.86
+    },
+    {
+     "description": "Printer toner cartridges",
+     "quantity": 11,
+     "unit_price": 269.38,
+     "amount": 2963.18
+    }
+   ],
+   "subtotal": 20414.82,
+   "tax": 3878.82,
+   "total": 24293.64,
+   "currency": "USD"
+  },
+  "layout": 2,
+  "format": "png"
+ },
+ "resume_00.pdf": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Andrea Morris",
+   "email": "andrea.morris_dev@gmail.com",
+   "skills": [
+    "Photoshop",
+    "Data Analysis",
+    "Figma",
+    "Agile",
+    "Public Speaking",
+    "Communication"
+   ],
+   "experience": [
+    {
+     "title": "Financial Analyst",
+     "company": "Apex Jenkins Ltd",
+     "start": "2021",
+     "end": "Present"
+    },
+    {
+     "title": "Data Analyst",
+     "company": "Blue Jones Supplies",
+     "start": "2017",
+     "end": "2021"
+    },
+    {
+     "title": "Software Engineer",
+     "company": "Blue Craig Co.",
+     "start": "2012",
+     "end": "2016"
+    },
+    {
+     "title": "Marketing Specialist",
+     "company": "United Stewart Group",
+     "start": "2010",
+     "end": "2011"
+    }
+   ],
+   "education": [
+    {
+     "degree": "Ph.D. Physics",
+     "institution": "Phillips Institute of Technology",
+     "year": "2020"
+    },
+    {
+     "degree": "B.Sc. Computer Science",
+     "institution": "East Edwinside State College",
+     "year": "2005"
+    }
+   ]
+  },
+  "layout": 0,
+  "format": "pdf"
+ },
+ "resume_01.pdf": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Jack Lawson",
+   "email": "jack.lawson88@proton.me",
+   "skills": [
+    "AWS",
+    "Excel",
+    "Marketing Analytics",
+    "Communication",
+    "Machine Learning",
+    "Leadership",
+    "Docker",
+    "React",
+    "Tableau"
+   ],
+   "experience": [
+    {
+     "title": "HR Coordinator",
+     "company": "Prime Munoz Consulting",
+     "start": "2024",
+     "end": "Present"
+    },
+    {
+     "title": "Business Analyst",
+     "company": "Global Webb Ltd",
+     "start": "2023",
+     "end": "2024"
+    }
+   ],
+   "education": [
+    {
+     "degree": "B.Sc. Statistics",
+     "institution": "Brown Institute of Technology",
+     "year": "2021"
+    },
+    {
+     "degree": "Ph.D. Physics",
+     "institution": "Robinson Institute of Technology",
+     "year": "2013"
+    }
+   ]
+  },
+  "layout": 1,
+  "format": "pdf"
+ },
+ "resume_02.docx": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Ashleigh Williams",
+   "email": "ashleigh.williams@gmail.com",
+   "skills": [
+    "Go",
+    "Public Speaking",
+    "C++",
+    "TypeScript",
+    "Machine Learning",
+    "Python",
+    "Docker",
+    "Java",
+    "React"
+   ],
+   "experience": [
+    {
+     "title": "Operations Manager",
+     "company": "Snow Systems",
+     "start": "2022",
+     "end": "Present"
+    }
+   ],
+   "education": [
+    {
+     "degree": "B.Com. Accounting",
+     "institution": "Gill Institute of Technology",
+     "year": "2020"
+    }
+   ]
+  },
+  "layout": 0,
+  "format": "docx"
+ },
+ "resume_03.pdf": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Sophie Hall",
+   "email": "sophie.hall@outlook.com",
+   "skills": [
+    "Communication",
+    "Python",
+    "Project Management",
+    "JavaScript",
+    "Tableau",
+    "Customer Support",
+    "C++",
+    "Agile",
+    "Figma"
+   ],
+   "experience": [
+    {
+     "title": "Marketing Specialist",
+     "company": "Mcdonald Partners",
+     "start": "2023",
+     "end": "Present"
+    }
+   ],
+   "education": [
+    {
+     "degree": "MBA",
+     "institution": "Fitzgeraldton State College",
+     "year": "2023"
+    },
+    {
+     "degree": "B.Sc. Statistics",
+     "institution": "Blackmouth State College",
+     "year": "2006"
+    }
+   ]
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "resume_04.pdf": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Lori Iqbal",
+   "email": "lori.iqbal_dev@proton.me",
+   "skills": [
+    "Negotiation",
+    "Agile",
+    "Git",
+    "Go",
+    "SQL",
+    "AWS",
+    "Python",
+    "React"
+   ],
+   "experience": [
+    {
+     "title": "Data Analyst",
+     "company": "Blue Harrington GmbH",
+     "start": "2024",
+     "end": "Present"
+    },
+    {
+     "title": "Marketing Specialist",
+     "company": "United Hale GmbH",
+     "start": "2023",
+     "end": "2024"
+    }
+   ],
+   "education": [
+    {
+     "degree": "B.Eng. Electrical Engineering",
+     "institution": "University of Lisahaven",
+     "year": "2008"
+    }
+   ]
+  },
+  "layout": 3,
+  "format": "pdf"
+ },
+ "resume_05.docx": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Eileen Clarke",
+   "email": "eileen.clarke_dev@proton.me",
+   "skills": [
+    "Customer Support",
+    "Machine Learning",
+    "Python",
+    "C++",
+    "Data Analysis",
+    "Tableau",
+    "SQL"
+   ],
+   "experience": [
+    {
+     "title": "UX Designer",
+     "company": "Blue Occaecati Partners",
+     "start": "2024",
+     "end": "Present"
+    },
+    {
+     "title": "UX Designer",
+     "company": "Prime Keith Group",
+     "start": "2021",
+     "end": "2023"
+    },
+    {
+     "title": "Software Engineer",
+     "company": "Holmes Labs",
+     "start": "2019",
+     "end": "2020"
+    },
+    {
+     "title": "Marketing Specialist",
+     "company": "Agent GmbH",
+     "start": "2017",
+     "end": "2019"
+    }
+   ],
+   "education": [
+    {
+     "degree": "B.Eng. Electrical Engineering",
+     "institution": "King Institute of Technology",
+     "year": "2023"
+    }
+   ]
+  },
+  "layout": 1,
+  "format": "docx"
+ },
+ "resume_06.pdf": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Joan Moore",
+   "email": "joan.moore@mail.com",
+   "skills": [
+    "Docker",
+    "Kubernetes",
+    "Photoshop",
+    "Git",
+    "AWS",
+    "SQL",
+    "Public Speaking"
+   ],
+   "experience": [
+    {
+     "title": "Operations Manager",
+     "company": "United Expedita Ltd",
+     "start": "2023",
+     "end": "Present"
+    },
+    {
+     "title": "QA Engineer",
+     "company": "United Adipisci Solutions",
+     "start": "2020",
+     "end": "2022"
+    }
+   ],
+   "education": [
+    {
+     "degree": "M.A. Marketing",
+     "institution": "Allen Institute of Technology",
+     "year": "2014"
+    }
+   ]
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "resume_07.pdf": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Gerard Gough",
+   "email": "gerard.gough_dev@yahoo.com",
+   "skills": [
+    "Customer Support",
+    "Data Analysis",
+    "Marketing Analytics",
+    "Communication",
+    "Machine Learning",
+    "JavaScript",
+    "Figma",
+    "Agile",
+    "Docker",
+    "React"
+   ],
+   "experience": [
+    {
+     "title": "Product Manager",
+     "company": "Digital Building Co.",
+     "start": "2023",
+     "end": "Present"
+    }
+   ],
+   "education": [
+    {
+     "degree": "Ph.D. Physics",
+     "institution": "Westburgh State College",
+     "year": "2010"
+    }
+   ]
+  },
+  "layout": 3,
+  "format": "pdf"
+ },
+ "resume_08.docx": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Steven O'Connor",
+   "email": "steven.o'connor@yahoo.com",
+   "skills": [
+    "Figma",
+    "JavaScript",
+    "Go",
+    "C++",
+    "React",
+    "Java"
+   ],
+   "experience": [
+    {
+     "title": "Software Engineer",
+     "company": "Ingram Industries",
+     "start": "2021",
+     "end": "Present"
+    },
+    {
+     "title": "Customer Success Manager",
+     "company": "Apex Carter Industries",
+     "start": "2018",
+     "end": "2021"
+    },
+    {
+     "title": "HR Coordinator",
+     "company": "United Quis GmbH",
+     "start": "2016",
+     "end": "2018"
+    },
+    {
+     "title": "HR Coordinator",
+     "company": "Blue Mack Consulting",
+     "start": "2013",
+     "end": "2015"
+    }
+   ],
+   "education": [
+    {
+     "degree": "B.Sc. Computer Science",
+     "institution": "Mellor Institute of Technology",
+     "year": "2013"
+    },
+    {
+     "degree": "B.A. Graphic Design",
+     "institution": "Hallborough State College",
+     "year": "2010"
+    }
+   ]
+  },
+  "layout": 1,
+  "format": "docx"
+ },
+ "resume_09.pdf": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Louis Powell",
+   "email": "louis.powell@proton.me",
+   "skills": [
+    "Machine Learning",
+    "Marketing Analytics",
+    "Docker",
+    "Project Management",
+    "Leadership",
+    "Excel",
+    "Communication",
+    "Public Speaking",
+    "Kubernetes",
+    "C++",
+    "TypeScript"
+   ],
+   "experience": [
+    {
+     "title": "UX Designer",
+     "company": "Digital Harris Supplies",
+     "start": "2022",
+     "end": "Present"
+    },
+    {
+     "title": "Software Engineer",
+     "company": "Medina Ltd",
+     "start": "2020",
+     "end": "2022"
+    }
+   ],
+   "education": [
+    {
+     "degree": "B.Com. Accounting",
+     "institution": "Myers Institute of Technology",
+     "year": "2020"
+    }
+   ]
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "resume_10.pdf": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Sarah Gray",
+   "email": "sarah.gray_dev@yahoo.com",
+   "skills": [
+    "Accounting",
+    "Photoshop",
+    "Customer Support",
+    "Tableau",
+    "Git",
+    "C++",
+    "Go"
+   ],
+   "experience": [
+    {
+     "title": "UX Designer",
+     "company": "United Mason Ltd",
+     "start": "2021",
+     "end": "Present"
+    },
+    {
+     "title": "Software Engineer",
+     "company": "Gonzales GmbH",
+     "start": "2017",
+     "end": "2021"
+    }
+   ],
+   "education": [
+    {
+     "degree": "B.A. Graphic Design",
+     "institution": "University of Rangelberg",
+     "year": "2010"
+    }
+   ]
+  },
+  "layout": 0,
+  "format": "pdf"
+ },
+ "resume_11.docx": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Kristin Jones",
+   "email": "kristin.jones1@gmail.com",
+   "skills": [
+    "Agile",
+    "Marketing Analytics",
+    "Communication",
+    "SQL",
+    "Negotiation",
+    "Go",
+    "Tableau",
+    "Project Management",
+    "AWS",
+    "C++",
+    "TypeScript"
+   ],
+   "experience": [
+    {
+     "title": "Business Analyst",
+     "company": "Allen Partners",
+     "start": "2024",
+     "end": "Present"
+    },
+    {
+     "title": "Marketing Specialist",
+     "company": "Thomas Systems",
+     "start": "2022",
+     "end": "2024"
+    },
+    {
+     "title": "HR Coordinator",
+     "company": "United Eaton GmbH",
+     "start": "2019",
+     "end": "2022"
+    },
+    {
+     "title": "Research Assistant",
+     "company": "Apex A Consulting",
+     "start": "2015",
+     "end": "2019"
+    }
+   ],
+   "education": [
+    {
+     "degree": "MBA",
+     "institution": "Robinsontown State College",
+     "year": "2023"
+    },
+    {
+     "degree": "M.A. Marketing",
+     "institution": "Rhodes Institute of Technology",
+     "year": "2007"
+    }
+   ]
+  },
+  "layout": 0,
+  "format": "docx"
+ },
+ "resume_12.pdf": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Christopher Lopez",
+   "email": "christopher.lopez@yahoo.com",
+   "skills": [
+    "Python",
+    "Leadership",
+    "AWS",
+    "Accounting",
+    "Agile"
+   ],
+   "experience": [
+    {
+     "title": "Financial Analyst",
+     "company": "Young Group",
+     "start": "2022",
+     "end": "Present"
+    },
+    {
+     "title": "Business Analyst",
+     "company": "Despite Group",
+     "start": "2021",
+     "end": "2022"
+    },
+    {
+     "title": "Business Analyst",
+     "company": "Hall Consulting",
+     "start": "2019",
+     "end": "2021"
+    }
+   ],
+   "education": [
+    {
+     "degree": "Ph.D. Physics",
+     "institution": "Susanshire State College",
+     "year": "2020"
+    }
+   ]
+  },
+  "layout": 0,
+  "format": "pdf"
+ },
+ "resume_13.pdf": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Luke Shah",
+   "email": "luke.shah_dev@proton.me",
+   "skills": [
+    "Git",
+    "Kubernetes",
+    "AWS",
+    "Machine Learning",
+    "Data Analysis",
+    "Python",
+    "JavaScript"
+   ],
+   "experience": [
+    {
+     "title": "Customer Success Manager",
+     "company": "Digital Tree Consulting",
+     "start": "2024",
+     "end": "Present"
+    },
+    {
+     "title": "Customer Success Manager",
+     "company": "Lopez LLC",
+     "start": "2020",
+     "end": "2023"
+    },
+    {
+     "title": "HR Coordinator",
+     "company": "Digital Mcgrath Industries",
+     "start": "2017",
+     "end": "2019"
+    }
+   ],
+   "education": [
+    {
+     "degree": "B.Eng. Electrical Engineering",
+     "institution": "Millerbury State College",
+     "year": "2018"
+    },
+    {
+     "degree": "B.A. Graphic Design",
+     "institution": "University of Lloydtown",
+     "year": "2012"
+    }
+   ]
+  },
+  "layout": 1,
+  "format": "pdf"
+ },
+ "resume_14.docx": {
+  "doc_type": "resume",
+  "fields": {
+   "name": "Melinda Taylor",
+   "email": "melinda.taylor_dev@outlook.com",
+   "skills": [
+    "Figma",
+    "Excel",
+    "Kubernetes",
+    "Accounting",
+    "Machine Learning",
+    "Tableau",
+    "Photoshop",
+    "Customer Support",
+    "Docker"
+   ],
+   "experience": [
+    {
+     "title": "Customer Success Manager",
+     "company": "United Lopez Co.",
+     "start": "2022",
+     "end": "Present"
+    }
+   ],
+   "education": [
+    {
+     "degree": "M.Sc. Data Science",
+     "institution": "University of Troyhaven",
+     "year": "2009"
+    },
+    {
+     "degree": "B.A. Economics",
+     "institution": "Lewis Institute of Technology",
+     "year": "2016"
+    }
+   ]
+  },
+  "layout": 2,
+  "format": "docx"
+ },
+ "contract_00.pdf": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Blue Goodwin Supplies",
+    "Apex Praesentium Solutions"
+   ],
+   "effective_date": "2022-10-22",
+   "term": "2 years",
+   "key_clauses": [
+    "Intellectual Property",
+    "Non-Compete",
+    "Indemnification",
+    "Payment Terms",
+    "Dispute Resolution",
+    "Confidentiality",
+    "Termination",
+    "Governing Law"
+   ]
+  },
+  "layout": 0,
+  "format": "pdf"
+ },
+ "contract_01.pdf": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "United Consequuntur GmbH",
+    "United Powell LLC"
+   ],
+   "effective_date": "2025-03-29",
+   "term": "4 years",
+   "key_clauses": [
+    "Intellectual Property",
+    "Dispute Resolution",
+    "Force Majeure",
+    "Indemnification",
+    "Termination",
+    "Payment Terms",
+    "Confidentiality",
+    "Governing Law"
+   ]
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "contract_02.docx": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Blue Jones Co.",
+    "Kent Consulting"
+   ],
+   "effective_date": "2022-12-26",
+   "term": "5 years",
+   "key_clauses": [
+    "Limitation of Liability",
+    "Confidentiality",
+    "Indemnification",
+    "Non-Compete",
+    "Governing Law"
+   ]
+  },
+  "layout": 2,
+  "format": "docx"
+ },
+ "contract_03.pdf": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Apex Mean Co.",
+    "United Allen Supplies"
+   ],
+   "effective_date": "2024-12-25",
+   "term": "6 months",
+   "key_clauses": [
+    "Limitation of Liability",
+    "Dispute Resolution",
+    "Intellectual Property",
+    "Non-Compete",
+    "Indemnification",
+    "Governing Law"
+   ]
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "contract_04.pdf": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Taylor Group",
+    "Blue Clarke Labs"
+   ],
+   "effective_date": "2024-08-09",
+   "term": "1 years",
+   "key_clauses": [
+    "Payment Terms",
+    "Limitation of Liability",
+    "Termination",
+    "Intellectual Property",
+    "Confidentiality",
+    "Dispute Resolution",
+    "Governing Law"
+   ]
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "contract_05.pdf": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Prime Duncan LLC",
+    "Apex Officiis Systems"
+   ],
+   "effective_date": "2023-11-07",
+   "term": "36 months",
+   "key_clauses": [
+    "Intellectual Property",
+    "Termination",
+    "Force Majeure",
+    "Limitation of Liability",
+    "Payment Terms",
+    "Governing Law"
+   ]
+  },
+  "layout": 0,
+  "format": "pdf"
+ },
+ "contract_06.docx": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Digital Strategy Inc.",
+    "Prime Johnson Solutions"
+   ],
+   "effective_date": "2022-11-01",
+   "term": "4 years",
+   "key_clauses": [
+    "Indemnification",
+    "Force Majeure",
+    "Limitation of Liability",
+    "Confidentiality",
+    "Governing Law"
+   ]
+  },
+  "layout": 0,
+  "format": "docx"
+ },
+ "contract_07.png": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Blue Data Supplies",
+    "Digital Ab Ltd"
+   ],
+   "effective_date": "2025-03-27",
+   "term": "12 months",
+   "key_clauses": [
+    "Indemnification",
+    "Force Majeure",
+    "Dispute Resolution",
+    "Termination",
+    "Governing Law"
+   ]
+  },
+  "layout": 0,
+  "format": "png"
+ },
+ "contract_08.pdf": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Suscipit Consulting",
+    "Apex Wright Systems"
+   ],
+   "effective_date": "2022-07-11",
+   "term": "6 months",
+   "key_clauses": [
+    "Intellectual Property",
+    "Limitation of Liability",
+    "Force Majeure",
+    "Termination",
+    "Dispute Resolution",
+    "Non-Compete",
+    "Governing Law"
+   ]
+  },
+  "layout": 1,
+  "format": "pdf"
+ },
+ "contract_09.pdf": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Apex Wright Industries",
+    "Apex Mahmood Partners"
+   ],
+   "effective_date": "2024-06-13",
+   "term": "3 years",
+   "key_clauses": [
+    "Force Majeure",
+    "Non-Compete",
+    "Confidentiality",
+    "Intellectual Property",
+    "Governing Law"
+   ]
+  },
+  "layout": 3,
+  "format": "pdf"
+ },
+ "contract_10.docx": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Quibusdam Inc.",
+    "Global Franklin Co."
+   ],
+   "effective_date": "2021-09-02",
+   "term": "12 months",
+   "key_clauses": [
+    "Indemnification",
+    "Limitation of Liability",
+    "Dispute Resolution",
+    "Termination",
+    "Force Majeure",
+    "Governing Law"
+   ]
+  },
+  "layout": 2,
+  "format": "docx"
+ },
+ "contract_11.png": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Global Jimenez Co.",
+    "Beasley Consulting"
+   ],
+   "effective_date": "2021-09-05",
+   "term": "4 years",
+   "key_clauses": [
+    "Indemnification",
+    "Intellectual Property",
+    "Dispute Resolution",
+    "Force Majeure",
+    "Non-Compete",
+    "Governing Law"
+   ]
+  },
+  "layout": 1,
+  "format": "png"
+ },
+ "contract_12.pdf": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Blue Orr Inc.",
+    "Digital Harris Systems"
+   ],
+   "effective_date": "2024-04-16",
+   "term": "2 years",
+   "key_clauses": [
+    "Termination",
+    "Payment Terms",
+    "Confidentiality",
+    "Dispute Resolution",
+    "Indemnification",
+    "Governing Law"
+   ]
+  },
+  "layout": 1,
+  "format": "pdf"
+ },
+ "contract_13.pdf": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Blue Kirk Solutions",
+    "Apex Language Group"
+   ],
+   "effective_date": "2021-09-17",
+   "term": "12 months",
+   "key_clauses": [
+    "Force Majeure",
+    "Limitation of Liability",
+    "Non-Compete",
+    "Termination",
+    "Indemnification",
+    "Dispute Resolution",
+    "Confidentiality",
+    "Governing Law"
+   ]
+  },
+  "layout": 3,
+  "format": "pdf"
+ },
+ "contract_14.docx": {
+  "doc_type": "contract",
+  "fields": {
+   "parties": [
+    "Blue Padilla Supplies",
+    "Apex Garcia Solutions"
+   ],
+   "effective_date": "2023-03-03",
+   "term": "5 years",
+   "key_clauses": [
+    "Indemnification",
+    "Intellectual Property",
+    "Non-Compete",
+    "Force Majeure",
+    "Termination",
+    "Limitation of Liability",
+    "Governing Law"
+   ]
+  },
+  "layout": 3,
+  "format": "docx"
+ },
+ "report_00.pdf": {
+  "doc_type": "report",
+  "fields": {
+   "title": "Incident Report: Service Degradation (Q2 2024)"
+  },
+  "layout": 1,
+  "format": "pdf"
+ },
+ "report_01.docx": {
+  "doc_type": "report",
+  "fields": {
+   "title": "Research Report: Consumer Adoption Survey 2022"
+  },
+  "layout": 0,
+  "format": "docx"
+ },
+ "report_02.pdf": {
+  "doc_type": "report",
+  "fields": {
+   "title": "Blue Kent Solutions Quarterly Business Review - Q2 2024"
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "report_03.pdf": {
+  "doc_type": "report",
+  "fields": {
+   "title": "Incident Report: Service Degradation (Q4 2023)"
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "report_04.docx": {
+  "doc_type": "report",
+  "fields": {
+   "title": "Incident Report: Service Degradation (Q3 2023)"
+  },
+  "layout": 3,
+  "format": "docx"
+ },
+ "report_05.pdf": {
+  "doc_type": "report",
+  "fields": {
+   "title": "Incident Report: Service Degradation (Q4 2024)"
+  },
+  "layout": 0,
+  "format": "pdf"
+ },
+ "report_06.pdf": {
+  "doc_type": "report",
+  "fields": {
+   "title": "Prime Lawrence Inc. Quarterly Business Review - Q3 2024"
+  },
+  "layout": 0,
+  "format": "pdf"
+ },
+ "report_07.docx": {
+  "doc_type": "report",
+  "fields": {
+   "title": "Digital Hernandez Co. Quarterly Business Review - Q4 2023"
+  },
+  "layout": 2,
+  "format": "docx"
+ },
+ "report_08.pdf": {
+  "doc_type": "report",
+  "fields": {
+   "title": "Research Report: Consumer Adoption Survey 2023"
+  },
+  "layout": 0,
+  "format": "pdf"
+ },
+ "report_09.pdf": {
+  "doc_type": "report",
+  "fields": {
+   "title": "United Leach Consulting Quarterly Business Review - Q1 2023"
+  },
+  "layout": 3,
+  "format": "pdf"
+ },
+ "report_10.docx": {
+  "doc_type": "report",
+  "fields": {
+   "title": "Incident Report: Service Degradation (Q1 2025)"
+  },
+  "layout": 0,
+  "format": "docx"
+ },
+ "report_11.pdf": {
+  "doc_type": "report",
+  "fields": {
+   "title": "Research Report: Consumer Adoption Survey 2024"
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "report_12.pdf": {
+  "doc_type": "report",
+  "fields": {
+   "title": "Incident Report: Service Degradation (Q1 2022)"
+  },
+  "layout": 3,
+  "format": "pdf"
+ },
+ "report_13.docx": {
+  "doc_type": "report",
+  "fields": {
+   "title": "A Systems Quarterly Business Review - Q4 2022"
+  },
+  "layout": 2,
+  "format": "docx"
+ },
+ "report_14.pdf": {
+  "doc_type": "report",
+  "fields": {
+   "title": "Incident Report: Service Degradation (Q1 2024)"
+  },
+  "layout": 3,
+  "format": "pdf"
+ },
+ "other_00.pdf": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "job_posting"
+  },
+  "layout": 0,
+  "format": "pdf"
+ },
+ "other_01.png": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "minutes"
+  },
+  "layout": 3,
+  "format": "png"
+ },
+ "other_02.docx": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "memo_invoice"
+  },
+  "layout": 2,
+  "format": "docx"
+ },
+ "other_03.jpg": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "newsletter"
+  },
+  "layout": 3,
+  "format": "jpg"
+ },
+ "other_04.pdf": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "flyer"
+  },
+  "layout": 1,
+  "format": "pdf"
+ },
+ "other_05.png": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "cover_letter"
+  },
+  "layout": 1,
+  "format": "png"
+ },
+ "other_06.docx": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "memo_invoice"
+  },
+  "layout": 3,
+  "format": "docx"
+ },
+ "other_07.jpg": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "memo_invoice"
+  },
+  "layout": 0,
+  "format": "jpg"
+ },
+ "other_08.pdf": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "email"
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "other_09.png": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "newsletter"
+  },
+  "layout": 1,
+  "format": "png"
+ },
+ "other_10.docx": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "minutes"
+  },
+  "layout": 0,
+  "format": "docx"
+ },
+ "other_11.jpg": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "cover_letter"
+  },
+  "layout": 1,
+  "format": "jpg"
+ },
+ "other_12.pdf": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "job_posting"
+  },
+  "layout": 2,
+  "format": "pdf"
+ },
+ "other_13.png": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "cover_letter"
+  },
+  "layout": 2,
+  "format": "png"
+ },
+ "other_14.docx": {
+  "doc_type": "other",
+  "fields": {
+   "kind": "job_posting"
+  },
+  "layout": 1,
+  "format": "docx"
+ }
+}

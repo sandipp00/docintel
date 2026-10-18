@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DocIntel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>DocIntel</h1>
+  <span id="llm-badge" class="badge">checking…</span>
+</header>
+
+<main>
+  <aside>
+    <label id="drop" class="drop" tabindex="0">
+      <input id="file" type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.docx" hidden>
+      <strong>Drop files here</strong> or click to browse
+      <small>PDF, PNG, JPG, DOCX · up to 5 files, 10 MB each</small>
+    </label>
+    <div id="upload-status" role="status"></div>
+    <ul id="docs" class="docs"></ul>
+  </aside>
+
+  <section id="detail" hidden>
+    <div class="titlebar">
+      <h2 id="d-name"></h2>
+      <button id="d-delete" class="danger">Delete</button>
+    </div>
+    <p id="d-meta" class="muted"></p>
+
+    <nav class="tabs" role="tablist">
+      <button data-tab="fields" class="active">Fields</button>
+      <button data-tab="summary">Summary</button>
+      <button data-tab="ask">Ask</button>
+      <button data-tab="text">Text</button>
+    </nav>
+
+    <div id="tab-fields" class="tab"></div>
+    <div id="tab-summary" class="tab" hidden></div>
+    <div id="tab-ask" class="tab" hidden>
+      <div id="chips" class="chips"></div>
+      <form id="ask-form">
+        <input id="q" type="text" minlength="3" maxlength="500" placeholder="Ask about this document…" required>
+        <button>Ask</button>
+        <label class="inline"><input id="ask-all" type="checkbox"> all documents</label>
+      </form>
+      <div id="answers"></div>
+    </div>
+    <div id="tab-text" class="tab" hidden><pre id="text"></pre></div>
+  </section>
+
+  <section id="empty" class="muted">Upload a document to get started.</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

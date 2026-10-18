@@ -1,0 +1,9 @@
+-r requirements.txt
+
+# Tests / lint
+pytest>=8.2
+ruff>=0.5
+
+# Synthetic data generation (not needed at runtime)
+faker>=25.0
+reportlab>=4.2

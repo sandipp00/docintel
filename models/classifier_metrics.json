@@ -1,0 +1,258 @@
+{
+ "validation": {
+  "n": 220,
+  "accuracy": 1.0,
+  "macro_f1": 1.0,
+  "per_class": {
+   "invoice": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 44
+   },
+   "resume": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 44
+   },
+   "contract": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 44
+   },
+   "report": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 44
+   },
+   "other": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 44
+   }
+  },
+  "labels": [
+   "invoice",
+   "resume",
+   "contract",
+   "report",
+   "other"
+  ],
+  "confusion_matrix": [
+   [
+    44,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    44,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    44,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    44,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    44
+   ]
+  ]
+ },
+ "held_out": {
+  "n": 75,
+  "accuracy": 1.0,
+  "macro_f1": 1.0,
+  "per_class": {
+   "invoice": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 15
+   },
+   "resume": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 15
+   },
+   "contract": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 15
+   },
+   "report": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 15
+   },
+   "other": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 15
+   }
+  },
+  "labels": [
+   "invoice",
+   "resume",
+   "contract",
+   "report",
+   "other"
+  ],
+  "confusion_matrix": [
+   [
+    15,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    15,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    15,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    15,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    15
+   ]
+  ],
+  "errors": [],
+  "mean_confidence": 0.9863
+ },
+ "held_out_first_200_chars": {
+  "n": 75,
+  "accuracy": 0.9867,
+  "macro_f1": 0.9867,
+  "per_class": {
+   "invoice": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 15
+   },
+   "resume": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 15
+   },
+   "contract": {
+    "precision": 1.0,
+    "recall": 0.933,
+    "f1": 0.966,
+    "support": 15
+   },
+   "report": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 15
+   },
+   "other": {
+    "precision": 0.938,
+    "recall": 1.0,
+    "f1": 0.968,
+    "support": 15
+   }
+  },
+  "labels": [
+   "invoice",
+   "resume",
+   "contract",
+   "report",
+   "other"
+  ],
+  "confusion_matrix": [
+   [
+    15,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    15,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    14,
+    0,
+    1
+   ],
+   [
+    0,
+    0,
+    0,
+    15,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    0,
+    15
+   ]
+  ],
+  "errors": [
+   {
+    "file": "contract_09.pdf",
+    "true": "contract",
+    "pred": "other",
+    "confidence": 0.3028,
+    "layout": 3,
+    "format": "pdf"
+   }
+  ],
+  "mean_confidence": 0.7786
+ }
+}
