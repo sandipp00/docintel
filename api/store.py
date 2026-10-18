@@ -23,6 +23,7 @@ class DocRecord:
     extracted: ExtractedDocument
     classification: Classification
     n_chunks: int
+    owner: str  # session id of the browser that uploaded it; see api.routes.session_id
     created: float = field(default_factory=time.time)
     extraction: ExtractionResult | None = None
     summary: Summary | None = None
@@ -55,10 +56,11 @@ class DocumentStore:
         with self._lock:
             return self._docs.get(doc_id)
 
-    def list(self) -> list[DocRecord]:
+    def list(self, owner: str) -> list[DocRecord]:
+        """One owner's documents, oldest first. Never returns another session's uploads."""
         self.purge_expired()
         with self._lock:
-            return sorted(self._docs.values(), key=lambda d: d.created)
+            return sorted((d for d in self._docs.values() if d.owner == owner), key=lambda d: d.created)
 
     def delete(self, doc_id: str) -> bool:
         with self._lock:

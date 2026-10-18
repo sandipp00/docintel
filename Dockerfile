@@ -14,11 +14,13 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends tesseract-ocr \
     && rm -rf /var/lib/apt/lists/*
 
-# Spaces runs containers as uid 1000
+# Spaces runs containers as uid 1000. Switch user *before* WORKDIR so the app directory is owned by
+# that user: the app creates data/ under it at startup, which fails on a root-owned directory.
 RUN useradd -m -u 1000 user
-WORKDIR /home/user/app
 USER user
-ENV PATH=/home/user/.local/bin:$PATH
+ENV HOME=/home/user \
+    PATH=/home/user/.local/bin:$PATH
+WORKDIR /home/user/app
 
 COPY --chown=user requirements.txt .
 RUN pip install --user -r requirements.txt \

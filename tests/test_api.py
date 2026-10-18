@@ -99,3 +99,29 @@ def test_rate_limit_key_uses_last_forwarded_hop():
 
     assert client_key(req([("x-forwarded-for", "6.6.6.6, 203.0.113.9")])) == "203.0.113.9"  # spoofed prefix ignored
     assert client_key(req([])) == "10.0.0.1"
+
+
+def test_sessions_cannot_see_or_touch_each_others_documents():
+    """A public deployment shares one store, so browsers must be isolated from each other."""
+    from main import app
+
+    with TestClient(app) as a, TestClient(app) as b:
+        mine = a.post("/api/samples/invoice").json()
+        doc_id = mine["doc_id"]
+        assert a.cookies.get("docintel_session")
+
+        # B has its own session: it sees nothing of A's and cannot read, delete or question it.
+        assert [d["doc_id"] for d in b.get("/api/documents").json()] == []
+        assert b.get(f"/api/documents/{doc_id}").status_code == 404
+        assert b.delete(f"/api/documents/{doc_id}").status_code == 404
+        assert b.post(f"/api/documents/{doc_id}/extract", json={"use_llm": False}).status_code == 404
+        assert b.post(f"/api/documents/{doc_id}/summary").status_code == 404
+        assert b.post("/api/ask", json={"question": "What is the total?"}).status_code == 400
+
+        # A still has it, and B's failed delete did not remove it.
+        assert [d["doc_id"] for d in a.get("/api/documents").json()] == [doc_id]
+
+        # An "all documents" question from B must not retrieve A's text.
+        b.post("/api/samples/resume")
+        ans = b.post("/api/ask", json={"question": "What is the invoice total?"}).json()
+        assert all(c["file"] != mine["filename"] for c in ans["citations"])
