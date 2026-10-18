@@ -38,5 +38,7 @@ COPY --chown=user models ./models
 COPY --chown=user sample_docs ./sample_docs
 
 EXPOSE 7860
-# One worker: documents and the vector index live in process memory.
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860", "--workers", "1"]
+# One worker: documents and the vector index live in process memory. Shell form (not exec form) so
+# ${PORT} expands: Cloud Run injects it and requires the server to listen on it, while Spaces uses the
+# 7860 default. `exec` keeps uvicorn as PID 1 so it still receives shutdown signals.
+CMD exec uvicorn main:app --host 0.0.0.0 --port ${PORT:-7860} --workers 1
