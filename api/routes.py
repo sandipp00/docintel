@@ -25,7 +25,21 @@ from src.utils import sanitize_filename
 logger = logging.getLogger(__name__)
 
 settings = get_settings()
-limiter = Limiter(key_func=get_remote_address, default_limits=[settings.rate_limit_default])
+
+
+def client_key(request: Request) -> str:
+    """Rate-limit key: the client address as seen by the reverse proxy, if there is one.
+
+    Behind a proxy (Hugging Face Spaces, Fly, Render) every request arrives from the proxy's own IP, so
+    keying on it would make all visitors share one limit. The proxy appends the real client address to
+    X-Forwarded-For; earlier entries are client-supplied and spoofable, so only the last one is trusted.
+    """
+    forwarded = request.headers.get("x-forwarded-for", "")
+    last = forwarded.rsplit(",", 1)[-1].strip()
+    return last or get_remote_address(request)
+
+
+limiter = Limiter(key_func=client_key, default_limits=[settings.rate_limit_default])
 router = APIRouter(prefix="/api")
 
 _CHUNK = 1024 * 1024
@@ -123,6 +137,31 @@ async def upload(request: Request, files: list[UploadFile] = File(...),
             raise HTTPException(400, f"{name} is empty.")
         out.append(_info(_process(store, data, name)))
     return out
+
+
+def _samples() -> dict[str, Path]:
+    """Bundled demo files by display name, e.g. {"invoice": .../sample_invoice.pdf}."""
+    folder = settings.sample_dir
+    if not folder.is_dir():
+        return {}
+    return {p.stem.removeprefix("sample_").replace("_", " "): p for p in sorted(folder.iterdir())
+            if p.suffix.lower() in settings.allowed_extensions}
+
+
+@router.get("/samples", response_model=list[str])
+def list_samples() -> list[str]:
+    """Names of the bundled sample documents the UI offers as one-click demos."""
+    return list(_samples())
+
+
+@router.post("/samples/{name}", response_model=DocumentInfo)
+@limiter.limit(settings.rate_limit_upload)
+def load_sample(request: Request, name: str, store: DocumentStore = Depends(get_store)) -> DocumentInfo:
+    """Load a bundled sample as if it had been uploaded (name must be one listed by GET /samples)."""
+    path = _samples().get(name)
+    if path is None:
+        raise HTTPException(404, "Unknown sample.")
+    return _info(_process(store, path.read_bytes(), path.name))
 
 
 @router.get("/documents", response_model=list[DocumentInfo])

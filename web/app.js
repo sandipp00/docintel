@@ -1,166 +1,248 @@
 "use strict";
 
 const $ = (id) => document.getElementById(id);
-const state = { docs: [], current: null, cache: {} };
+const state = { docs: [], current: null, cache: {}, threads: {} };
 
-// Document text is untrusted: everything below is rendered with textContent, never innerHTML.
+const TYPES = {
+  invoice: { icon: "🧾", color: "var(--t-invoice)" }, resume: { icon: "👤", color: "var(--t-resume)" },
+  contract: { icon: "📜", color: "var(--t-contract)" }, report: { icon: "📊", color: "var(--t-report)" },
+  other: { icon: "📁", color: "var(--t-other)" },
+};
+const typeOf = (label) => TYPES[label] ?? TYPES.other;
+
+// Document text is untrusted: everything is rendered with textContent, never innerHTML.
 function el(tag, props = {}, ...kids) {
   const n = document.createElement(tag);
   for (const [k, v] of Object.entries(props)) {
-    if (k === "class") n.className = v; else if (k === "text") n.textContent = v; else n[k] = v;
+    if (k === "class") n.className = v; else if (k === "text") n.textContent = v;
+    else if (k === "style") n.setAttribute("style", v); else n[k] = v;
   }
   for (const kid of kids) if (kid != null) n.append(kid);
   return n;
 }
+const pct = (x) => (x == null ? "—" : Math.round(x * 100) + "%");
+const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
 
+// ---------------------------------------------------------------- api + feedback
 async function api(path, opts = {}) {
   const res = await fetch("/api" + path, opts);
   if (res.status === 204) return null;
   const body = await res.json().catch(() => ({}));
   if (!res.ok) {
     const d = body.detail;
-    throw new Error(typeof d === "string" ? d : res.status === 429 ? "Too many requests; wait a moment."
-                    : Array.isArray(d) ? "That input isn't valid." : `Request failed (${res.status}).`);
+    throw new Error(typeof d === "string" ? d : res.status === 429 ? "Too many requests. Please wait a moment and try again."
+                    : Array.isArray(d) ? "That input isn't valid." : `Something went wrong (${res.status}).`);
   }
   return body;
 }
 const post = (path, data) => api(path, {
   method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data ?? {}) });
 
-function setStatus(msg, isError = false) {
-  const s = $("upload-status"); s.textContent = msg; s.className = isError ? "error" : "";
+function toast(msg, kind = "info") {
+  const t = el("div", { class: "toast " + kind, text: msg });
+  $("toasts").append(t);
+  setTimeout(() => t.remove(), kind === "error" ? 7000 : 3500);
 }
-const pct = (x) => (x == null ? "—" : Math.round(x * 100) + "%");
+function busy(msg) { $("busy-text").textContent = msg ?? ""; $("busy").hidden = !msg; }
+const skeleton = () => el("div", { class: "skeleton" }, el("i"), el("i"), el("i"), el("i"));
 
-// ---------------------------------------------------------------- document list
+// ---------------------------------------------------------------- theme
+function applyTheme(t) { document.documentElement.dataset.theme = t; }
+(function initTheme() {
+  let t = null;
+  try { t = localStorage.getItem("theme"); } catch { /* storage may be blocked */ }
+  applyTheme(t ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+})();
+$("theme").onclick = () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(next);
+  try { localStorage.setItem("theme", next); } catch { /* ignore */ }
+};
+
+// ---------------------------------------------------------------- views + document list
+function showView() {
+  const has = state.docs.length > 0;
+  $("hero").hidden = has; $("workspace").hidden = !has;
+  $("detail").hidden = !state.current; $("pick").hidden = !!state.current;
+}
+
 function renderDocs() {
   const ul = $("docs"); ul.replaceChildren();
   for (const d of state.docs) {
-    const li = el("li", { class: d.doc_id === state.current?.doc_id ? "active" : "" },
-      el("div", { class: "name", text: d.filename }),
-      el("span", { class: "tag", text: `${d.classification.label} · ${pct(d.classification.confidence)}` }),
-      el("span", { class: "muted", text: `  ${d.n_pages} page${d.n_pages === 1 ? "" : "s"}` }));
+    const tp = typeOf(d.classification.label);
+    const li = el("li", { class: d.doc_id === state.current?.doc_id ? "active" : "", tabIndex: 0, style: `--tc:${tp.color}` },
+      el("div", { class: "type-icon", text: tp.icon }),
+      el("div", {}, el("div", { class: "nm", text: d.filename, title: d.filename }),
+        el("div", { class: "sub", text: `${d.classification.label} · ${pct(d.classification.confidence)} · ${plural(d.n_pages, "page")}` })));
     li.onclick = () => select(d.doc_id);
+    li.onkeydown = (e) => { if (e.key === "Enter") select(d.doc_id); };
     ul.append(li);
   }
-  $("empty").hidden = state.docs.length > 0 || !!state.current;
+  showView();
 }
 
-async function refresh() {
-  state.docs = await api("/documents");
-  renderDocs();
-}
+async function refresh() { state.docs = await api("/documents"); renderDocs(); }
 
 async function upload(files) {
+  files = [...files];
   if (!files.length) return;
-  const form = new FormData();
-  for (const f of files) form.append("files", f);
-  setStatus("Uploading and reading…");
+  busy(`Reading ${plural(files.length, "file")}… scanned pages can take a few seconds.`);
   try {
+    const form = new FormData();
+    for (const f of files) form.append("files", f);
     const added = await api("/upload", { method: "POST", body: form });
-    setStatus(`Added ${added.length} document${added.length === 1 ? "" : "s"}.`);
     await refresh();
+    toast(`Added ${plural(added.length, "document")}.`);
     select(added[0].doc_id);
-  } catch (e) { setStatus(e.message, true); }
+  } catch (e) { toast(e.message, "error"); } finally { busy(null); }
 }
 
-// ---------------------------------------------------------------- detail
-async function select(id) {
-  state.current = state.docs.find((d) => d.doc_id === id) ?? null;
-  if (!state.current) return;
+async function loadSample(name) {
+  busy(`Loading the ${name} sample…`);
+  try {
+    const d = await post(`/samples/${encodeURIComponent(name)}`);
+    await refresh();
+    select(d.doc_id);
+  } catch (e) { toast(e.message, "error"); } finally { busy(null); }
+}
+
+// ---------------------------------------------------------------- selecting a document
+function select(id) {
+  const c = state.docs.find((d) => d.doc_id === id);
+  if (!c) return;
+  state.current = c; state.cache = {};
   renderDocs();
-  $("detail").hidden = false; $("empty").hidden = true;
-  const c = state.current;
+  const tp = typeOf(c.classification.label);
+  $("detail").style.setProperty("--tc", tp.color);
+  $("d-icon").textContent = tp.icon;
+  $("d-icon").style.setProperty("--tc", tp.color);
   $("d-name").textContent = c.filename;
-  $("d-meta").textContent = `${c.file_type.toUpperCase()} · ${c.n_pages} page(s) · ${c.n_chars} chars · ` +
-    `read via ${c.method}${c.ocr_confidence != null ? ` (OCR confidence ${pct(c.ocr_confidence)})` : ""}`;
-  $("answers").replaceChildren();
-  const chips = $("chips"); chips.replaceChildren();
+  const chips = $("d-chips"); chips.replaceChildren(
+    el("span", { class: "chip type", style: `--tc:${tp.color}`, text: `${c.classification.label} · ${pct(c.classification.confidence)}` }),
+    el("span", { class: "chip", text: plural(c.n_pages, "page") }),
+    el("span", { class: "chip", text: c.method === "digital" || c.method === "docx" ? "digital text" : "read with OCR" +
+      (c.ocr_confidence != null ? ` (${pct(c.ocr_confidence)})` : "") }));
+  const sg = $("suggest"); sg.replaceChildren();
   for (const q of c.suggested_questions) {
-    chips.append(el("button", { type: "button", text: q, onclick: () => { $("q").value = q; ask(); } }));
+    sg.append(el("button", { type: "button", text: q, onclick: () => { $("q").value = q; ask(); } }));
   }
-  state.cache = {};
-  showTab(document.querySelector(".tabs .active").dataset.tab);
+  $("thread").replaceChildren(...(state.threads[id] ?? []));
+  showTab(document.querySelector(".seg .active").dataset.tab);
+  if (matchMedia("(max-width: 800px)").matches) $("detail").scrollIntoView({ behavior: "smooth" });
 }
 
 function showTab(name) {
-  document.querySelectorAll(".tabs button").forEach((b) => b.classList.toggle("active", b.dataset.tab === name));
+  document.querySelectorAll(".seg button").forEach((b) => b.classList.toggle("active", b.dataset.tab === name));
   document.querySelectorAll(".tab").forEach((t) => (t.hidden = t.id !== "tab-" + name));
   const id = state.current?.doc_id;
   if (!id) return;
   if (name === "fields") loadFields(id);
   if (name === "summary") loadSummary(id);
   if (name === "text") loadText(id);
+  if (name === "ask") setTimeout(() => $("q").focus(), 0);
 }
-
-function loading(node, msg) { node.replaceChildren(el("p", { class: "muted", text: msg })); }
-function failed(node, e) { node.replaceChildren(el("div", { class: "note bad", text: e.message })); }
 const stale = (id) => state.current?.doc_id !== id;
+const failed = (box, e) => box.replaceChildren(el("div", { class: "note bad", text: e.message }));
 
-function fmt(v) {
-  if (v == null || v === "" || (Array.isArray(v) && !v.length)) return "—";
-  if (Array.isArray(v)) {
-    return v.map((x) => (typeof x === "object" ? Object.values(x).filter((y) => y != null).join(" · ") : x)).join("\n");
-  }
+// ---------------------------------------------------------------- fields
+const MONEY = new Set(["subtotal", "tax", "total", "amount", "unit_price"]);
+
+function money(v, currency) {
+  if (typeof v !== "number") return String(v);
+  try {
+    if (/^[A-Za-z]{3}$/.test(currency ?? "")) return new Intl.NumberFormat(undefined, { style: "currency", currency: currency.toUpperCase() }).format(v);
+  } catch { /* unknown currency code: fall through */ }
+  const n = v.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return currency ? `${currency} ${n}` : n;
+}
+const isEmpty = (v) => v == null || v === "" || (Array.isArray(v) && !v.length);
+const label = (k) => k.replace(/_/g, " ");
+
+function plainValue(k, v, currency) {
+  if (isEmpty(v)) return "—";
+  if (MONEY.has(k)) return money(v, currency);
+  if (Array.isArray(v)) return v.map((x) => (typeof x === "object" ? Object.values(x).filter((y) => y != null).join(" · ") : x)).join(", ");
   return String(v);
 }
 
-async function getFields(id) {
-  return (state.cache.fields ??= await post(`/documents/${id}/extract`, { use_llm: true }));
+function table(rows, currency) {
+  const cols = [...new Set(rows.flatMap((r) => Object.keys(r)))];
+  const t = el("table");
+  t.append(el("tr", {}, ...cols.map((c) => el("th", { class: MONEY.has(c) || c === "quantity" ? "num" : "", text: label(c) }))));
+  for (const r of rows) {
+    t.append(el("tr", {}, ...cols.map((c) => el("td", {
+      class: MONEY.has(c) || c === "quantity" ? "num" : "", text: r[c] == null ? "—" : MONEY.has(c) ? money(r[c], currency) : String(r[c]) }))));
+  }
+  return el("div", { class: "tbl-wrap" }, t);
+}
+
+function fieldCard(k, v, r) {
+  const currency = r.final.currency;
+  const cmp = r.comparison?.[k];
+  const tag = !r.llm || !cmp || cmp === "both_missing" ? null
+    : cmp === "match" ? el("span", { class: "tag ok", text: "✓ verified" })
+    : cmp === "mismatch" ? el("span", { class: "tag bad", text: "⚠ methods differ" })
+    : el("span", { class: "tag single", text: "one method" });
+  const card = el("div", { class: "field" }, el("div", { class: "lab" }, el("span", { text: label(k) }), tag));
+  if (isEmpty(v)) {
+    card.append(el("div", { class: "val empty", text: "Not found" }));
+  } else if (Array.isArray(v) && typeof v[0] === "object") {
+    card.classList.add("wide"); card.append(table(v, currency));
+  } else if (Array.isArray(v)) {
+    card.classList.add(v.length > 4 ? "wide" : "x"); card.append(el("div", { class: "pills" }, ...v.map((x) => el("span", { text: x }))));
+  } else {
+    card.append(el("div", { class: "val", text: plainValue(k, v, currency) }));
+  }
+  if (cmp === "mismatch") {
+    card.append(el("div", { class: "alt", text: `Rule-based: ${plainValue(k, r.baseline[k], currency)} · AI: ${plainValue(k, r.llm?.[k], currency)}` }));
+  }
+  return card;
 }
 
 async function loadFields(id) {
   const box = $("tab-fields");
-  loading(box, "Extracting fields…");
+  box.replaceChildren(skeleton());
   try {
-    const r = await getFields(id);
+    const r = (state.cache.fields ??= await post(`/documents/${id}/extract`, { use_llm: true }));
     if (stale(id)) return;
     box.replaceChildren();
     if (!Object.keys(r.final).length) {
-      box.append(el("p", { class: "muted", text: r.llm_note ?? "No fields are extracted for this document type." }));
+      box.append(el("div", { class: "note", text: r.llm_note ?? "Field extraction applies to invoices, resumes and contracts." }));
       return;
     }
     if (r.llm_status !== "ok") {
-      box.append(el("div", { class: "note", text: `Baseline extraction only (LLM ${r.llm_status.replace("_", " ")})` +
-        (r.llm_note ? `: ${r.llm_note}` : ".") }));
+      const why = { rate_limited: "the AI service is busy", unavailable: "no AI service is connected",
+                    invalid_output: "the AI reply couldn't be used", skipped: "AI check was skipped" }[r.llm_status] ?? r.llm_status;
+      box.append(el("div", { class: "note", text: `ℹ️ Showing rule-based results only (${why}).` }));
     }
     if (r.security_flags.length) {
-      box.append(el("div", { class: "note bad",
-        text: `${r.security_flags.length} line(s) looked like prompt injection and were withheld from the LLM.` }));
+      box.append(el("div", { class: "note bad", text: `🛡️ ${plural(r.security_flags.length, "line")} looked like an instruction aimed at the AI and ${r.security_flags.length === 1 ? "was" : "were"} withheld from it.` }));
     }
-    const table = el("table");
-    const head = el("tr", {}, el("th", { text: "Field" }), el("th", { text: "Value" }));
-    if (r.llm) head.append(el("th", { text: "Rule-based" }), el("th", { text: "LLM" }), el("th", { text: "Agreement" }));
-    table.append(head);
-    for (const [k, v] of Object.entries(r.final)) {
-      const cmp = r.comparison[k];
-      const row = el("tr", {}, el("th", { text: k.replace(/_/g, " ") }), el("td", { class: "multi", text: fmt(v) }));
-      if (r.llm) {
-        row.append(el("td", { class: "multi", text: fmt(r.baseline[k]) }),
-                   el("td", { class: "multi", text: fmt(r.llm[k]) }),
-                   el("td", { class: cmp === "match" ? "cmp-match" : cmp === "mismatch" ? "cmp-mismatch" : "cmp-other",
-                              text: (cmp ?? "").replace(/_/g, " ") }));
-      }
-      table.append(row);
-    }
-    box.append(table, el("p", { class: "muted",
-      text: `Confidence ${pct(r.confidence)} · ${pct(r.field_success_rate)} of fields found` }));
+    const col = r.confidence >= 0.8 ? "var(--ok)" : r.confidence >= 0.5 ? "var(--warn)" : "var(--bad)";
+    box.append(el("div", { class: "score" },
+      el("div", { class: "ring", style: `--p:${Math.round(r.confidence * 100)};--rc:${col}` }, el("span", { text: pct(r.confidence) })),
+      el("div", {}, el("b", { text: "Extraction confidence" }),
+        el("span", { class: "muted", text: (r.llm_status === "ok" ? "Two methods cross-checked each field. " : "Single method, so confidence is capped. ") +
+          `${pct(r.field_success_rate)} of fields found.` }))));
+    box.append(el("div", { class: "fields" }, ...Object.entries(r.final).map(([k, v]) => fieldCard(k, v, r))));
   } catch (e) { failed(box, e); }
 }
 
+// ---------------------------------------------------------------- summary
 async function loadSummary(id) {
   const box = $("tab-summary");
-  loading(box, "Summarising…");
+  box.replaceChildren(skeleton());
   try {
     const s = (state.cache.summary ??= await post(`/documents/${id}/summary`));
     if (stale(id)) return;
-    box.replaceChildren(el("p", { text: s.summary }));
+    box.replaceChildren(el("div", { class: "callout", text: s.summary }));
     if (s.key_points.length) box.append(el("ul", { class: "points" }, ...s.key_points.map((p) => el("li", { text: p }))));
-    box.append(el("p", { class: "muted",
-      text: s.method === "llm" ? "Generated by the language model." : "Extractive summary (no LLM used)." }));
+    box.append(el("p", { class: "src-note", text: s.method === "llm" ? "✨ Written by AI and checked against the document."
+      : "Built by picking the most representative sentences (no AI used)." }));
   } catch (e) { failed(box, e); }
 }
 
+// ---------------------------------------------------------------- text
 async function loadText(id) {
   const pre = $("text");
   pre.textContent = "Loading…";
@@ -168,70 +250,95 @@ async function loadText(id) {
     const detail = (state.cache.detail ??= await api(`/documents/${id}`));
     const text = detail.pages.map((p) => p.text).join("\f");
     let marks = [];
-    try { marks = (await getFields(id)).highlights; } catch { /* highlights are optional */ }
+    try {
+      marks = (state.cache.fields ??= await post(`/documents/${id}/extract`, { use_llm: true })).highlights;
+    } catch { /* highlights are optional */ }
     if (stale(id)) return;
     pre.replaceChildren();
     const gap = (s) => s.replace(/\f/g, "\n\n──────── page break ────────\n\n");
     let pos = 0;
     for (const m of marks) {
       if (m.start < pos) continue;
-      pre.append(gap(text.slice(pos, m.start)), el("mark", { text: text.slice(m.start, m.end), title: m.field }));
+      pre.append(gap(text.slice(pos, m.start)), el("mark", { text: text.slice(m.start, m.end), title: label(m.field) }));
       pos = m.end;
     }
     pre.append(gap(text.slice(pos)));
   } catch (e) { pre.textContent = e.message; }
 }
 
-// ---------------------------------------------------------------- ask
+// ---------------------------------------------------------------- ask (chat)
+function addMsg(id, node) {
+  (state.threads[id] ??= []).push(node);
+  if (state.current?.doc_id === id) { $("thread").append(node); node.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+}
+
 async function ask(ev) {
   ev?.preventDefault();
   const question = $("q").value.trim();
-  if (question.length < 3 || !state.current) return;
-  const btn = document.querySelector("#ask-form button");
+  const id = state.current?.doc_id;
+  if (question.length < 3 || !id) return;
+  $("q").value = "";
+  const btn = document.querySelector(".send");
   btn.disabled = true;
-  const body = { question, doc_ids: $("ask-all").checked ? null : [state.current.doc_id] };
-  const card = el("div", { class: "answer" }, el("div", { class: "q", text: question }),
-    el("p", { class: "muted", text: "Thinking…" }));
-  $("answers").prepend(card);
+  addMsg(id, el("div", { class: "msg user", text: question }));
+  const bot = el("div", { class: "msg bot" }, el("div", { class: "dots" }, el("i"), el("i"), el("i")));
+  addMsg(id, bot);
   try {
-    const a = await post("/ask", body);
-    card.replaceChildren(el("div", { class: "q", text: question }), el("p", { text: a.answer }));
-    if (!a.found) card.classList.add("refused");
-    if (a.note) card.append(el("p", { class: "muted", text: a.note }));
-    for (const c of a.citations) {
-      card.append(el("blockquote", { text: `“${c.text.slice(0, 300)}” — ${c.file}, page ${c.page}` }));
+    const a = await post("/ask", { question, doc_ids: $("ask-all").checked ? null : [id] });
+    bot.replaceChildren(el("div", { text: a.answer }));
+    if (!a.found) bot.classList.add("refused");
+    if (a.note) bot.append(el("div", { class: "meta", text: a.note }));
+    if (a.citations.length) {
+      bot.append(el("div", { class: "cites" }, ...a.citations.map((c) =>
+        el("div", { class: "cite" }, el("b", { text: `${c.file} · page ${c.page}` }), el("div", { text: `“${c.text.slice(0, 260)}${c.text.length > 260 ? "…" : ""}”` })))));
     }
-    if (a.support != null) card.append(el("p", { class: "muted", text: `Support ${pct(a.support)}` }));
+    if (a.support != null) bot.append(el("div", { class: "meta", text: `Backed by the source: ${pct(a.support)}` }));
   } catch (e) {
-    card.replaceChildren(el("div", { class: "q", text: question }), el("div", { class: "note bad", text: e.message }));
-  } finally { btn.disabled = false; }
+    bot.replaceChildren(el("div", { text: e.message }));
+    bot.classList.add("refused");
+  } finally { btn.disabled = false; $("q").focus(); }
 }
 
 // ---------------------------------------------------------------- wiring
-const drop = $("drop");
-$("file").onchange = (e) => { upload([...e.target.files]); e.target.value = ""; };
-drop.ondragover = (e) => { e.preventDefault(); drop.classList.add("over"); };
-drop.ondragleave = () => drop.classList.remove("over");
-drop.ondrop = (e) => { e.preventDefault(); drop.classList.remove("over"); upload([...e.dataTransfer.files]); };
-drop.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); $("file").click(); } };
-document.querySelectorAll(".tabs button").forEach((b) => (b.onclick = () => showTab(b.dataset.tab)));
+const fileInput = $("file");
+fileInput.onchange = (e) => { upload(e.target.files); e.target.value = ""; };
+const openPicker = (e) => { if (e.type === "click" || e.key === "Enter" || e.key === " ") { e.preventDefault(); fileInput.click(); } };
+$("drop").onkeydown = openPicker;
+$("drop-mini").onclick = openPicker; $("drop-mini").onkeydown = openPicker;
+
+let dragDepth = 0;
+addEventListener("dragenter", (e) => { if (e.dataTransfer?.types?.includes("Files")) { dragDepth++; $("drop-overlay").hidden = false; } });
+addEventListener("dragleave", () => { dragDepth = Math.max(0, dragDepth - 1); if (!dragDepth) $("drop-overlay").hidden = true; });
+addEventListener("dragover", (e) => e.preventDefault());
+addEventListener("drop", (e) => { e.preventDefault(); dragDepth = 0; $("drop-overlay").hidden = true; upload(e.dataTransfer?.files ?? []); });
+
+document.querySelectorAll(".seg button").forEach((b) => (b.onclick = () => showTab(b.dataset.tab)));
 $("ask-form").onsubmit = ask;
 $("d-delete").onclick = async () => {
   const id = state.current?.doc_id;
-  if (!id || !confirm("Delete this document?")) return;
-  try {
-    await api(`/documents/${id}`, { method: "DELETE" });
-  } catch (e) { setStatus(e.message, true); }
-  state.current = null; $("detail").hidden = true;
+  if (!id || !confirm("Delete this document? This can't be undone.")) return;
+  try { await api(`/documents/${id}`, { method: "DELETE" }); } catch (e) { toast(e.message, "error"); }
+  delete state.threads[id];
+  state.current = null;
   await refresh();
+  if (state.docs.length) select(state.docs[0].doc_id);
 };
+
+function renderSamples(names) {
+  for (const host of [$("sample-list"), $("sample-mini")]) {
+    host.replaceChildren(...names.map((n) => el("button", { class: "sample-btn", type: "button", text: n, onclick: () => loadSample(n) })));
+  }
+  $("sample-mini").prepend(el("span", { text: "Samples: " }));
+}
 
 (async () => {
   try {
     const h = await api("/health");
     const b = $("llm-badge");
-    b.textContent = h.llm_enabled ? `LLM: ${h.llm_provider}` : "LLM off (rule-based only)";
+    b.textContent = h.llm_enabled ? `● AI on · ${h.llm_provider}` : "○ AI off · rule-based";
     b.classList.add(h.llm_enabled ? "on" : "off");
+    renderSamples(await api("/samples").catch(() => []));
     await refresh();
-  } catch (e) { setStatus("Could not reach the server.", true); }
+    if (state.docs.length) select(state.docs[0].doc_id);
+  } catch { toast("Could not reach the server. Is it running?", "error"); }
 })();

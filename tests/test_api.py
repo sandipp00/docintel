@@ -77,3 +77,25 @@ def test_web_ui_is_served(client):
     assert r.status_code == 200 and "DocIntel" in r.text
     assert client.get("/app.js").status_code == 200 and client.get("/style.css").status_code == 200
     assert client.get("/api/health").json()["status"] == "ok"  # API routes win over the static mount
+
+
+def test_samples_listed_and_loadable(client):
+    names = client.get("/api/samples").json()
+    assert "invoice" in names
+    r = client.post("/api/samples/invoice")
+    assert r.status_code == 200 and r.json()["classification"]["label"] == "invoice"
+    assert client.post("/api/samples/..%2F..%2F.env").status_code in (404, 405)  # never served
+    assert client.post("/api/samples/nope").status_code == 404
+
+
+def test_rate_limit_key_uses_last_forwarded_hop():
+    from starlette.requests import Request
+
+    from api.routes import client_key
+
+    def req(headers):
+        return Request({"type": "http", "headers": [(k.encode(), v.encode()) for k, v in headers],
+                        "client": ("10.0.0.1", 1234)})
+
+    assert client_key(req([("x-forwarded-for", "6.6.6.6, 203.0.113.9")])) == "203.0.113.9"  # spoofed prefix ignored
+    assert client_key(req([])) == "10.0.0.1"

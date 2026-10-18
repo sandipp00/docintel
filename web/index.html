@@ -4,55 +4,100 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DocIntel</title>
+<meta name="description" content="Upload a document and get its type, key fields, a summary and cited answers.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>DocIntel</h1>
-  <span id="llm-badge" class="badge">checking…</span>
+<div class="bg-glow" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="brand" href="/" aria-label="DocIntel home">
+    <span class="logo">D</span><span>DocIntel</span>
+  </a>
+  <div class="top-actions">
+    <span id="llm-badge" class="pill">…</span>
+    <button id="theme" class="icon-btn" type="button" aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+  </div>
 </header>
 
-<main>
-  <aside>
+<main id="app">
+  <!-- Landing: shown until a document exists -->
+  <section id="hero" class="hero">
+    <h1>Understand any document<br><span class="grad">in seconds.</span></h1>
+    <p class="lead">Drop in an invoice, resume, contract or report. DocIntel reads it, tells you what it is,
+      pulls out the key details, summarises it, and answers your questions, with sources.</p>
+
     <label id="drop" class="drop" tabindex="0">
       <input id="file" type="file" multiple accept=".pdf,.png,.jpg,.jpeg,.docx" hidden>
-      <strong>Drop files here</strong> or click to browse
-      <small>PDF, PNG, JPG, DOCX · up to 5 files, 10 MB each</small>
+      <span class="drop-icon" aria-hidden="true">⇪</span>
+      <span class="drop-title">Drag &amp; drop files here</span>
+      <span class="drop-sub">or <u>browse</u> · PDF, PNG, JPG, DOCX · up to 5 files, 10 MB each</span>
     </label>
-    <div id="upload-status" role="status"></div>
-    <ul id="docs" class="docs"></ul>
-  </aside>
 
-  <section id="detail" hidden>
-    <div class="titlebar">
-      <h2 id="d-name"></h2>
-      <button id="d-delete" class="danger">Delete</button>
+    <div class="samples">
+      <span class="muted">No file handy? Try a sample:</span>
+      <span id="sample-list"></span>
     </div>
-    <p id="d-meta" class="muted"></p>
 
-    <nav class="tabs" role="tablist">
-      <button data-tab="fields" class="active">Fields</button>
-      <button data-tab="summary">Summary</button>
-      <button data-tab="ask">Ask</button>
-      <button data-tab="text">Text</button>
-    </nav>
-
-    <div id="tab-fields" class="tab"></div>
-    <div id="tab-summary" class="tab" hidden></div>
-    <div id="tab-ask" class="tab" hidden>
-      <div id="chips" class="chips"></div>
-      <form id="ask-form">
-        <input id="q" type="text" minlength="3" maxlength="500" placeholder="Ask about this document…" required>
-        <button>Ask</button>
-        <label class="inline"><input id="ask-all" type="checkbox"> all documents</label>
-      </form>
-      <div id="answers"></div>
-    </div>
-    <div id="tab-text" class="tab" hidden><pre id="text"></pre></div>
+    <ul class="features">
+      <li><b>🔎 Reads anything</b><span>Digital PDFs, scans and photos, via OCR.</span></li>
+      <li><b>🏷️ Knows the type</b><span>Invoice, resume, contract, report or other.</span></li>
+      <li><b>🧩 Extracts fields</b><span>Cross-checked by two methods for trust.</span></li>
+      <li><b>💬 Answers with proof</b><span>Cited passages, or an honest “not found”.</span></li>
+    </ul>
   </section>
 
-  <section id="empty" class="muted">Upload a document to get started.</section>
+  <!-- Workspace: shown once a document exists -->
+  <section id="workspace" class="workspace" hidden>
+    <aside class="side">
+      <label id="drop-mini" class="drop-mini" tabindex="0">
+        <span>＋ Add documents</span>
+      </label>
+      <div class="samples-mini muted" id="sample-mini"></div>
+      <ul id="docs" class="docs"></ul>
+    </aside>
+
+    <section class="panel" id="detail" hidden>
+      <div class="doc-head">
+        <div id="d-icon" class="type-icon" aria-hidden="true"></div>
+        <div class="doc-title">
+          <h2 id="d-name"></h2>
+          <div id="d-chips" class="chips-row"></div>
+        </div>
+        <button id="d-delete" class="ghost danger" type="button">Delete</button>
+      </div>
+
+      <div class="seg" role="tablist" aria-label="Views">
+        <button data-tab="fields" role="tab" class="active">🧩 Fields</button>
+        <button data-tab="summary" role="tab">📝 Summary</button>
+        <button data-tab="ask" role="tab">💬 Ask</button>
+        <button data-tab="text" role="tab">📄 Text</button>
+      </div>
+
+      <div id="tab-fields" class="tab" role="tabpanel"></div>
+      <div id="tab-summary" class="tab" role="tabpanel" hidden></div>
+      <div id="tab-ask" class="tab" role="tabpanel" hidden>
+        <div id="thread" class="thread"></div>
+        <div id="suggest" class="suggest"></div>
+        <form id="ask-form" class="composer" autocomplete="off">
+          <input id="q" type="text" minlength="3" maxlength="500" placeholder="Ask anything about this document…" required>
+          <button class="send" aria-label="Send question">Ask ➤</button>
+        </form>
+        <label class="scope"><input id="ask-all" type="checkbox"> Search across all uploaded documents</label>
+      </div>
+      <div id="tab-text" class="tab" role="tabpanel" hidden>
+        <p class="muted legend"><mark>Highlighted</mark> text was used for an extracted field.</p>
+        <pre id="text"></pre>
+      </div>
+    </section>
+
+    <section id="pick" class="panel pick muted">Select a document on the left.</section>
+  </section>
 </main>
+
+<div id="drop-overlay" class="overlay" hidden><div>Drop to upload</div></div>
+<div id="busy" class="busy" hidden role="status"><span class="spinner"></span><span id="busy-text">Reading…</span></div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
 <script src="app.js"></script>
 </body>
 </html>

@@ -59,6 +59,7 @@ class Settings(BaseSettings):
     models_dir: Path = ROOT_DIR / "models"
     web_dir: Path = ROOT_DIR / "web"
     evaluation_dir: Path = ROOT_DIR / "evaluation"
+    sample_dir: Path = ROOT_DIR / "sample_docs"
 
     @property
     def max_upload_bytes(self) -> int:
