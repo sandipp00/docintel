@@ -181,6 +181,10 @@ def main() -> None:
     args = ap.parse_args()
     if args.llm and not get_settings().llm_enabled:
         ap.error("--llm needs LLM_PROVIDER and its API key set in .env")
+    if args.llm:
+        # The app gives up after a few seconds so web requests fail fast; an evaluation should
+        # queue for a free slot instead, or most calls get marked rate-limited by our own limiter.
+        get_provider().max_wait_seconds = 300.0
 
     t0 = time.perf_counter()
     labels = json.loads((TEST_DIR / "labels.json").read_text(encoding="utf-8"))
