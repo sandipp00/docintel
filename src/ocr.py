@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import os
 import shutil
 from dataclasses import dataclass
 
@@ -15,6 +16,12 @@ from src.config import get_settings
 logger = logging.getLogger(__name__)
 
 _configured = False
+
+# Default install locations, tried when tesseract isn't on PATH and TESSERACT_CMD is unset.
+_WINDOWS_TESSERACT_PATHS = (
+    r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+    r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+)
 
 
 @dataclass
@@ -31,6 +38,8 @@ def configure_tesseract() -> None:
     if _configured:
         return
     cmd = get_settings().tesseract_cmd
+    if not cmd and shutil.which("tesseract") is None:
+        cmd = next((p for p in _WINDOWS_TESSERACT_PATHS if os.path.isfile(p)), None)
     if cmd:
         pytesseract.pytesseract.tesseract_cmd = cmd
     _configured = True

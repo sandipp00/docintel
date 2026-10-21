@@ -22,7 +22,17 @@ Uploads are never kept on disk. Extracted text lives in memory and expires after
 
 ## Quick start
 
-Requires Python 3.11 and [Tesseract](https://github.com/tesseract-ocr/tesseract) (needed only for scans and
+The fastest way to run it locally:
+
+```bash
+python run_local.py
+```
+
+This creates `.venv`, installs dependencies, downloads the spaCy model, writes a `.env` with the LLM turned off
+(so no accounts or keys are needed), starts the server and opens http://127.0.0.1:8000. Re-running skips
+finished steps; use `--no-browser` to skip opening the browser and `PORT=9000` to change the port.
+
+To set it up by hand instead, you need Python 3.11 and [Tesseract](https://github.com/tesseract-ocr/tesseract) (needed only for scans and
 images; on Windows set `TESSERACT_CMD` if it isn't on `PATH`).
 
 ```bash
