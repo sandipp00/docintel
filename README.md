@@ -18,7 +18,9 @@ a key everything still works using rule-based extraction and extractive fallback
 | Q&A | Chunks are embedded (MiniLM) into a FAISS index. The top passages go to the LLM, which must cite them. Answers whose numbers or wording aren't supported by the cited text are refused. | `src/rag.py` |
 | Safety | Lines that look like prompt injection are stripped before text reaches the LLM, and document text is wrapped in per-request random markers and treated as untrusted. | `src/extraction.py`, `tests/test_prompt_injection.py` |
 
-Uploads are never kept on disk. Extracted text lives in memory and expires after `RETENTION_MINUTES`.
+Uploads are never kept on disk. Extracted text lives in memory and expires after `RETENTION_MINUTES`. Each
+browser gets its own session (an HTTP-only `docintel_session` cookie), and it can only see, question or delete
+the documents it uploaded.
 
 ## Quick start
 
@@ -33,7 +35,8 @@ This creates `.venv`, installs dependencies, downloads the spaCy model, writes a
 finished steps; use `--no-browser` to skip opening the browser and `PORT=9000` to change the port.
 
 To set it up by hand instead, you need Python 3.11 and [Tesseract](https://github.com/tesseract-ocr/tesseract) (needed only for scans and
-images; on Windows set `TESSERACT_CMD` if it isn't on `PATH`).
+images). On Windows the default install location under `C:\Program Files` is found automatically; set
+`TESSERACT_CMD` only if it's installed somewhere else and isn't on `PATH`.
 
 ```bash
 python -m venv .venv
@@ -70,22 +73,26 @@ Settings come from environment variables or `.env` (see `.env.example`).
 
 ## API
 
-All routes are under `/api`; interactive docs are at `/docs`.
+All routes are under `/api`; interactive docs are at `/docs`. Documents belong to the session in the
+`docintel_session` cookie, which the first response sets. Send it back on later requests, or each request starts
+a new, empty session.
 
 | Method and path | Purpose |
 |---|---|
 | `GET /health` | Liveness, and whether an LLM is configured (never the key) |
 | `POST /upload` | Multipart `files` (up to 5). Reads, classifies and indexes each one. |
-| `GET /documents` | List uploaded documents |
+| `GET /samples` | Names of the bundled sample documents |
+| `POST /samples/{name}` | Load a sample as if it had been uploaded |
+| `GET /documents` | List this session's documents |
 | `GET /documents/{id}` | Metadata and per-page text |
 | `DELETE /documents/{id}` | Remove a document and its index entries |
 | `POST /documents/{id}/extract` | Field extraction. Body: `{"use_llm": true}` |
 | `POST /documents/{id}/summary` | Summary and key points |
-| `POST /ask` | `{"question": "...", "doc_ids": ["..."]}` → answer with citations, or a refusal |
+| `POST /ask` | `{"question": "...", "doc_ids": ["..."]}` → answer with citations, or a refusal. Without `doc_ids`, searches all of this session's documents. |
 
 ```bash
-curl -F files=@sample_docs/sample_invoice.pdf http://127.0.0.1:8000/api/upload
-curl -X POST localhost:8000/api/ask -H 'Content-Type: application/json' \
+curl -c cookies.txt -b cookies.txt -F files=@sample_docs/sample_invoice.pdf http://127.0.0.1:8000/api/upload
+curl -c cookies.txt -b cookies.txt -X POST http://127.0.0.1:8000/api/ask -H 'Content-Type: application/json' \
      -d '{"question": "What is the total amount due?"}'
 ```
 
@@ -96,7 +103,8 @@ ruff check .
 pytest
 ```
 
-CI runs both on every push and pull request.
+CI runs both on pushes to `main` and on pull requests. Pushes to `main` also run the offline evaluation below and
+keep `eval_report.json` as a build artifact.
 
 `python -m evaluation.run_eval` scores the whole pipeline on 75 held-out documents (`evaluation/test_docs/`,
 15 per type, spread across PDF, DOCX, PNG and JPG). It runs offline and never calls an LLM. Add `--llm` to
@@ -122,12 +130,12 @@ Read these with care:
 - In the LLM run, 1 of 45 extractions had an unusable model reply (kept the rule-based result) and 2 of 206
   answers hit the free-tier rate limit and fell back to a passage; both are counted in the scores above.
 - Rule-based extraction is weakest on contract parties (F1 0.70), invoice vendor (0.73) and currency (0.80);
-  the LLM cross-check mostly fixes these.
+  the LLM cross-check brings parties and vendor to 1.0, but currency stays at 0.80 (0.75 for the LLM alone).
 
 ## Deploying
 
 A `Dockerfile` is included (Tesseract, the spaCy model and the embedding model are baked in; the app listens on
-port 7860 with a single worker). It ships with `LLM_PROVIDER=none`, so a public demo can't spend anyone's API
+`$PORT`, default 7860, with a single worker). It ships with `LLM_PROVIDER=none`, so a public demo can't spend anyone's API
 quota. To run it locally: `docker build -t docintel . && docker run -p 7860:7860 docintel`.
 
 To publish on [Hugging Face Spaces](https://huggingface.co/new-space) (free, 16 GB RAM):
@@ -137,6 +145,17 @@ To publish on [Hugging Face Spaces](https://huggingface.co/new-space) (free, 16 
    Spaces needs added to the README; this repo's README is unchanged).
 3. Optional: to turn the AI on, add `LLM_PROVIDER` and the matching `GEMINI_API_KEY` / `GROQ_API_KEY` in the
    Space's *Settings → Variables and secrets*. Anyone can then use that quota, so prefer a separate key.
+
+To publish on [Google Cloud Run](https://cloud.google.com/run) instead (needs a project with billing enabled, the
+`gcloud` CLI and `gcloud auth login`; Docker isn't needed locally because Cloud Build builds the image):
+
+```bash
+deploy/cloud_run.sh <gcp-project-id> [region]     # region defaults to us-central1
+```
+
+The service gets 2 GiB of memory and 2 CPUs, scales to zero when idle, and is capped at one instance because
+documents live in a single process's memory. The LLM stays off; the script prints the commands to turn it on
+with a key kept in Secret Manager.
 
 Behind a reverse proxy the per-IP rate limits use the address the proxy reports in `X-Forwarded-For`.
 
@@ -155,8 +174,9 @@ tests/        pytest suite
 ## Limitations
 
 - State is in memory and per process: restarting the server drops all documents, and it won't work behind
-  multiple workers.
-- There is no authentication. If you expose it publicly, restrict `CORS_ORIGINS` and keep the upload limits.
+  multiple workers or instances.
+- There is no authentication. Sessions keep visitors' documents apart, but anyone who has a session's cookie
+  value can access its documents. If you expose it publicly, restrict `CORS_ORIGINS` and keep the upload limits.
 - Free LLM tiers are rate-limited; when the model is unavailable, answers fall back to the most relevant passage
   and are labelled as such.
 - English documents only.
